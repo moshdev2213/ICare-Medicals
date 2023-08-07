@@ -3,8 +3,8 @@
     <style name="Base.Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 <!--         Customize your light theme here.-->
 <!--         <item name="colorPrimary">@color/bg_btn</item>-->
-        <item name="android:background">@color/bg_primary</item>
-        <item name="android:navigationBarColor">@color/bg_primary</item>
+<!--        <item name="android:background">@color/bg_primary</item>-->
+        <item name="android:navigationBarColor">@color/bg_secondary</item>
         <item name="android:statusBarColor">@color/bg_primary</item>
     </style>
 
