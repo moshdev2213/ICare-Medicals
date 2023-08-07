@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--    app colors-->
+    <color name="bg_yellow">#ECFE72</color>
+    <color name="bg_secondary">#24252B</color>
+    <color name="bg_primary">#181A20</color>
+    <color name="bg_btn">#8766EB</color>
+    <color name="bg_white">#FFFFFF</color>
+    <color name="bg_green">#4CC069</color>
+    <!--  app colors  -->
 </resources>
