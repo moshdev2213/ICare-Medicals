@@ -13,19 +13,27 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".Registration"
-            android:exported="true" >
-           
+            android:name=".index"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
+            android:name=".Registration"
+            android:exported="true"></activity>
+        <activity
             android:name=".SignIn"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.App.SplashScreen"></activity>
+            android:theme="@style/Theme.App.SplashScreen" />
 
         <meta-data
             android:name="preloaded_fonts"
