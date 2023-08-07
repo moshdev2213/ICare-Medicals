@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-        <activity
-            android:name=".index"
-            android:exported="false" />
+
         <activity
             android:name=".Home"
             android:exported="true">
