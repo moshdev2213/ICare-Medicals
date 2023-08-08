@@ -11,5 +11,10 @@
     <color name="bg_white">#FFFFFF</color>
     <color name="bg_green">#4CC069</color>
     <color name="bg_lightgreen">#366F47</color>
+    <color name="bg_warning">#D2DB83</color>
+    <color name="bg_warning_dark">#C6CF76</color>
+    <color name="bg_warning_dark2">#A79783</color>
+
+    <color name="semiTransparentColor">#90B00020</color>
     <!--  app colors  -->
 </resources>
