@@ -10,5 +10,6 @@
     <color name="bg_btn">#8766EB</color>
     <color name="bg_white">#FFFFFF</color>
     <color name="bg_green">#4CC069</color>
+    <color name="bg_lightgreen">#366F47</color>
     <!--  app colors  -->
 </resources>
