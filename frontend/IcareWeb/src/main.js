@@ -1,6 +1,7 @@
 import './assets/css/styles.css'
 import './assets/libs/apexcharts/dist/apexcharts.min.js'
 import './assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js'
+
 import VueApexCharts from 'vue3-apexcharts'
 
 import { createApp } from 'vue'
