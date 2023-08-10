@@ -1,0 +1,23 @@
+{
+  "name": "vue_dashboard",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "apexcharts": "^3.41.1",
+    "datatables.net-responsive": "^2.5.0",
+    "datatables.net-select": "^1.7.0",
+    "datatables.net-vue3": "^2.1.2",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "vue3-apexcharts": "^1.4.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.6"
+  }
+}
