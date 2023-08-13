@@ -16,5 +16,8 @@
     <color name="bg_warning_dark2">#A79783</color>
 
     <color name="semiTransparentColor">#90B00020</color>
+
+    <color name="validationdone">#31DBF5</color>
+    <color name="validationerror">#FF585F</color>
     <!--  app colors  -->
 </resources>
