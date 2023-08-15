@@ -85,7 +85,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/tvScanDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -99,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <TextView
-            android:id="@+id/textView34"
+            android:id="@+id/tvScanTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -183,7 +183,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView33"
+            app:layout_constraintStart_toEndOf="@+id/tvScanDate"
             app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/baseline_access_time_filled_24" />
 
@@ -194,7 +194,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView34"
+            app:layout_constraintStart_toEndOf="@+id/tvScanTime"
             app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/baseline_done_all_24" />
 

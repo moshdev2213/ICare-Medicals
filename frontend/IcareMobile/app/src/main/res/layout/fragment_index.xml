@@ -73,10 +73,10 @@
             android:textColor="@color/bg_white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView6" />
+            app:layout_constraintTop_toBottomOf="@+id/cvScanEye" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
+            android:id="@+id/cvChannel"
             android:layout_width="115dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
@@ -84,7 +84,7 @@
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
-            app:layout_constraintStart_toEndOf="@+id/cardView6"
+            app:layout_constraintStart_toEndOf="@+id/cvScanEye"
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -112,7 +112,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView9"
+            android:id="@+id/cvDisease"
             android:layout_width="115dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
@@ -122,7 +122,7 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView7"
+            app:layout_constraintStart_toEndOf="@+id/cvChannel"
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -256,7 +256,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView6"
+            android:id="@+id/cvScanEye"
             android:layout_width="115dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
