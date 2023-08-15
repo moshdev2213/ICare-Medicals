@@ -16,7 +16,7 @@ public class AuthImpl implements AuthService{
 
 	@Override
 	public Patient createPatient(Patient patient) {
-		patient.setDate(new Date());
+		
 		
 		Patient resPatient = authrepo.save(patient);
 		return resPatient;

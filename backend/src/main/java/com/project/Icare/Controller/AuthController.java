@@ -14,15 +14,16 @@ import com.project.Icare.Collection.Patient;
 import com.project.Icare.Service.AuthService;
 
 @RestController
-@RequestMapping("/api/auth/")
+@RequestMapping("/api/auth")
 @CrossOrigin("*")
 public class AuthController {
 	
 	@Autowired
 	private AuthService authService;
 	
-	@PostMapping("register/patient")
+	@PostMapping("/register/patient")
 	public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
+		System.out.println("Received patient: " + patient);
 		Patient resPatient =  authService.createPatient(patient);
 		return new ResponseEntity<>(resPatient,HttpStatus.CREATED); 
 	}
