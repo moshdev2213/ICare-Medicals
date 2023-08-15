@@ -9,17 +9,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.APIServices.Authentication
 import com.example.myapplication.DialogAlerts.ProgressLoader
-import com.example.myapplication.Entity.Patient
+import com.example.myapplication.EntityDao.LoginDao
 import com.example.myapplication.FromData.UserLoginForm
 import com.example.myapplication.RetrofitService.RetrofitService
 import com.example.myapplication.Validations.ValidationResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.logging.Level
-import java.util.logging.Logger
 
 
 class SignIn : AppCompatActivity() {
@@ -31,7 +31,7 @@ class SignIn : AppCompatActivity() {
     private lateinit var progressLoader: ProgressLoader
     private var count = 0;
 
-    private val myCoroutineScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
+    private val myCoroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -49,7 +49,6 @@ class SignIn : AppCompatActivity() {
         btnSignIn.setOnClickListener{
             val email =etEmailSignIn.text.toString()
             val password =etPassSignIn.text.toString()
-
             userLogin(email,password)
         }
     }
@@ -67,23 +66,25 @@ class SignIn : AppCompatActivity() {
             val retrofitService = RetrofitService()
             val authentication : Authentication = retrofitService.getRetrofit().create(Authentication::class.java)
 
-            val call: Call<Patient> = authentication.getUserExist(email.lowercase())
-            call.enqueue(object : Callback<Patient>{
+            val call: Call<LoginDao> = authentication.userLogin(
+                LoginDao(email,password)
+            )
+            call.enqueue(object : Callback<LoginDao>{
 
-                override fun onResponse(call: Call<Patient>, response: Response<Patient>) {
+                override fun onResponse(call: Call<LoginDao>, response: Response<LoginDao>) {
                     if (response.isSuccessful){
-                        val patient: Patient? = response.body()
+                        val patient = response.body()
                         if(patient !=null){
                             startActivity(Intent(this@SignIn,Home::class.java))
+                            progressLoader.dismissProgressLoader()
                             finish()
                         }
                     }else{
-                        Toast.makeText(this@SignIn,"UnSuccessesResponse",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignIn,"Invalid Credentials",Toast.LENGTH_SHORT).show()
+                        progressLoader.dismissProgressLoader()
                     }
-                    progressLoader.dismissProgressLoader()
                 }
-                override fun onFailure(call: Call<Patient>, t: Throwable) {
-                    Logger.getLogger(SignIn::class.java.name).log(Level.SEVERE, "Error", t)
+                override fun onFailure(call: Call<LoginDao>, t: Throwable) {
                     Toast.makeText(this@SignIn,"Failed",Toast.LENGTH_SHORT).show()
                     progressLoader.dismissProgressLoader()
 

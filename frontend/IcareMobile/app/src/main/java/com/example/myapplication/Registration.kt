@@ -58,8 +58,6 @@ class Registration : AppCompatActivity() {
     private fun userRegister(email: String, password: String,repass:String) {
         regValidator(email,password,repass)
 
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX")
-        val formattedDate = dateFormat.format(Date())
 
         if(count==2){
             progressLoader = ProgressLoader(
@@ -68,53 +66,74 @@ class Registration : AppCompatActivity() {
             progressLoader.startProgressLoader()
 
             val retrofitService = RetrofitService()
-            val authentication : Authentication = retrofitService.getRetrofit().create(
-                Authentication::class.java)
+            val authentication : Authentication = retrofitService.getRetrofit().create(Authentication::class.java)
 
-            val call: Call<Patient> = authentication.createPatient(
-                Patient(
-                    email,
-                    password,
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    0,
-                    Address(
-                        "",
-                        "",
-                        ""
-                    ),
-                    formattedDate
-                )
-            )
-            call.enqueue(object : Callback<Patient> {
-
+            authentication.getUserExist(email).enqueue(object:Callback<Patient>{
                 override fun onResponse(call: Call<Patient>, response: Response<Patient>) {
-                    Logger.getLogger(Registration::class.java.name).log(Level.SEVERE, "Error", response)
-                    if (response.isSuccessful){
-                        val patient: Patient? = response.body()
+                    if(response.isSuccessful){
+                        val patient = response.body()
                         if(patient !=null){
-                            startActivity(Intent(this@Registration,Home::class.java))
-                            finish()
+                            Toast.makeText(this@Registration,"Already Exist", Toast.LENGTH_SHORT).show()
+                            progressLoader.dismissProgressLoader()
                         }
                     }else{
-                        Toast.makeText(this@Registration,"UnSuccessesResponse", Toast.LENGTH_SHORT).show()
-
+                        regUser(authentication, email, password)
+                        progressLoader.dismissProgressLoader()
                     }
-                    progressLoader.dismissProgressLoader()
                 }
                 override fun onFailure(call: Call<Patient>, t: Throwable) {
-                    Logger.getLogger(Registration::class.java.name).log(Level.SEVERE, "Error", t)
                     Toast.makeText(this@Registration,"Failed", Toast.LENGTH_SHORT).show()
                     progressLoader.dismissProgressLoader()
-
                 }
+
             })
             count=0;
         }
         count=0;
+    }
+
+    private fun regUser(authentication: Authentication,email:String,password: String){
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX")
+        val formattedDate = dateFormat.format(Date())
+
+        val call: Call<Patient> = authentication.createPatient(
+            Patient(
+                email,
+                password,
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                Address(
+                    "",
+                    "",
+                    ""
+                ),
+                formattedDate
+            )
+        )
+        call.enqueue(object : Callback<Patient> {
+
+            override fun onResponse(call: Call<Patient>, response: Response<Patient>) {
+                Logger.getLogger(Registration::class.java.name).log(Level.SEVERE, "Error", response)
+                if (response.isSuccessful){
+                    val patient: Patient? = response.body()
+                    if(patient !=null){
+                        startActivity(Intent(this@Registration,Home::class.java))
+                        finish()
+                    }
+                }else{
+                    Toast.makeText(this@Registration,"UnSuccessesResponse", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+            override fun onFailure(call: Call<Patient>, t: Throwable) {
+                Logger.getLogger(Registration::class.java.name).log(Level.SEVERE, "Error", t)
+                Toast.makeText(this@Registration,"Failed", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun regValidator(email: String, password: String, repass: String) {
