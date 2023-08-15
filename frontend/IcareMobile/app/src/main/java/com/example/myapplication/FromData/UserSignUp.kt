@@ -7,7 +7,7 @@ class UserSignUp(
     private var password:String,
     private var rePass:String
 ) {
-    fun validateUserEmail(): ValidationResult {
+    fun validateEmail(): ValidationResult {
         val regex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}" // Regex to match email addresses
 
         return if(email.isEmpty()){
