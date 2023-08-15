@@ -95,30 +95,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/editTextText13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:width="200dp"
                 android:alpha="0.5"
                 android:background="@drawable/custom_input"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="Province"
-                android:inputType="text"
+                android:entries="@array/provinces"
                 android:padding="8dp"
-                android:textColor="@color/bg_white"
-                android:textColorHint="@color/bg_white"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@+id/editTextText14"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextText11" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/editTextText15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -126,17 +119,10 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="24dp"
-                android:width="200dp"
                 android:alpha="0.5"
                 android:background="@drawable/custom_input"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="Blood Group"
-                android:inputType="text"
+                android:entries="@array/bGroup"
                 android:padding="8dp"
-                android:textColor="@color/bg_white"
-                android:textColorHint="@color/bg_white"
-                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/editTextText16"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -159,50 +145,37 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextText15"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/editTextText15"
-                tools:layout_editor_absoluteY="292dp" />
+                app:layout_constraintTop_toTopOf="@+id/editTextText15" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/editTextText14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:width="200dp"
                 android:alpha="0.5"
                 android:background="@drawable/custom_input"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="Gender"
-                android:inputType="text"
+                android:entries="@array/gender"
                 android:padding="8dp"
-                android:textColor="@color/bg_white"
-                android:textColorHint="@color/bg_white"
-                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/editTextText13"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/editTextText13"
                 app:layout_constraintTop_toTopOf="@+id/editTextText13" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/editTextText12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:width="200dp"
                 android:alpha="0.5"
                 android:background="@drawable/custom_input"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="District"
-                android:inputType="text"
+                android:entries="@array/districts"
                 android:padding="8dp"
-                android:textColor="@color/bg_white"
-                android:textColorHint="@color/bg_white"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/editTextText11"
@@ -314,10 +287,11 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextText5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/editTextText5"
-                tools:layout_editor_absoluteY="24dp" />
+                app:layout_constraintTop_toTopOf="@+id/editTextText5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

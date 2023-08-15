@@ -42,6 +42,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-//    splash screen ependency
+    //splash screen ependency
     implementation 'androidx.core:core-splashscreen:1.0.0'
+    //retrofit dependency and GSON library
+    implementation 'com.squareup.retrofit2:retrofit:(insert latest version)'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
 }
