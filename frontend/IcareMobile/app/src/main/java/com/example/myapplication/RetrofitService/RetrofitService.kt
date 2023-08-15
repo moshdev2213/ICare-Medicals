@@ -13,7 +13,7 @@ class RetrofitService {
 
     private fun initRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://localhost:8090")
+            .baseUrl("http://192.168.12.145:8090")
             .addConverterFactory(GsonConverterFactory.create(Gson()))
             .build()
     }
