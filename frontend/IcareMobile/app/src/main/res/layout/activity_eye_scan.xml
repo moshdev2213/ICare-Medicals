@@ -7,6 +7,70 @@
     android:background="@color/bg_primary"
     tools:context=".EyeScan">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvScanEyeAct"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/bg_btn"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="SCAN EYE NOW"
+                android:textColor="@color/bg_white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:alpha="0.5"
+                android:src="@drawable/baseline_arrow_forward_ios_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/textView24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.484" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:alpha="0.8"
+                android:src="@drawable/baseline_arrow_forward_ios_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.489" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/textView57"
         android:layout_width="wrap_content"
@@ -15,12 +79,13 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="Eye Scanning"
         android:textColor="@color/bg_white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvEyeScanResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +96,7 @@
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView20">
+        app:layout_constraintTop_toBottomOf="@+id/imgBack">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -66,7 +131,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView7"
+                android:id="@+id/cvEyeScanChannelDoc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -203,15 +268,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
-            <ImageView
-                android:id="@+id/imageView24"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgEyeUploadPreview"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
                 app:srcCompat="@drawable/eyedash" />
 
             <TextView
@@ -280,7 +346,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
             <TextView
-                android:id="@+id/textView68"
+                android:id="@+id/tvPredictName03"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -292,7 +358,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
             <TextView
-                android:id="@+id/textView62"
+                android:id="@+id/tvPredictName02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -304,7 +370,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
             <TextView
-                android:id="@+id/textView59"
+                android:id="@+id/tvPredictName01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -355,7 +421,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
             <TextView
-                android:id="@+id/textView70"
+                android:id="@+id/tvPredictRate03"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.5"
@@ -367,7 +433,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
             <TextView
-                android:id="@+id/textView64"
+                android:id="@+id/tvPredictRate02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.5"
@@ -379,7 +445,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView61" />
 
             <TextView
-                android:id="@+id/textView58"
+                android:id="@+id/tvPredictRate01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.5"
@@ -391,7 +457,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/tvScanDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -405,7 +471,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <TextView
-                android:id="@+id/textView34"
+                android:id="@+id/tvScanTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -483,7 +549,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:alpha="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView33"
+                app:layout_constraintStart_toEndOf="@+id/tvScanDate"
                 app:layout_constraintTop_toBottomOf="@+id/view"
                 app:srcCompat="@drawable/baseline_access_time_filled_24" />
 
@@ -494,7 +560,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:alpha="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView34"
+                app:layout_constraintStart_toEndOf="@+id/tvScanTime"
                 app:layout_constraintTop_toBottomOf="@+id/view"
                 app:srcCompat="@drawable/baseline_done_all_24" />
 
@@ -530,7 +596,7 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/imgBack"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -539,39 +605,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/bg_btn"
-        android:fontFamily="@font/montserrat_medium"
-        android:text="SCAN YOU EYE"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/bg_btn"
-        android:fontFamily="@font/montserrat_medium"
-        android:text="UPLOAD IMAGE"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <ImageView
-        android:id="@+id/imageView25"
+        android:id="@+id/imgPlaceHolderUpload"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintBottom_toTopOf="@+id/cvScanEyeAct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView57"
