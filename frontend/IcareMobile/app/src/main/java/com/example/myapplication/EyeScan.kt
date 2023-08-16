@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -10,16 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import com.example.myapplication.APIServices.Authentication
 import com.example.myapplication.APIServices.EyeScanAPI
 import com.example.myapplication.EntityDao.EyeScanDao
-import com.example.myapplication.EntityDao.LoginDao
 import com.example.myapplication.RealPathUtil.RealPathUtil
 import com.example.myapplication.RetrofitService.RetrofitService
-import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.github.dhaval2404.imagepicker.ImagePicker
-import com.google.gson.JsonObject
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -45,14 +40,10 @@ class EyeScan : AppCompatActivity() {
     private lateinit var tvScanTime:TextView
     private lateinit var tvScanDate:TextView
 
-
-    private lateinit var tvPredictName01:TextView
-    private lateinit var tvPredictName02:TextView
-    private lateinit var tvPredictName03:TextView
-
     private lateinit var tvEyeScanRiskLevel:TextView
     private lateinit var tvEyeScanType:TextView
     private lateinit var tvMainNameDis:TextView
+    private lateinit var textView61:TextView
 
     private lateinit var shimmerScan: ShimmerFrameLayout
 
@@ -71,16 +62,12 @@ class EyeScan : AppCompatActivity() {
         cvEyeScanChannelDoc = findViewById(R.id.cvEyeScanChannelDoc)
         tvScanTime = findViewById(R.id.tvScanTime)
         tvScanDate = findViewById(R.id.tvScanDate)
-        tvPredictName01 = findViewById(R.id.tvPredictName01)
-        tvPredictName02 = findViewById(R.id.tvPredictName02)
-        tvPredictName03 = findViewById(R.id.tvPredictName03)
 
         tvEyeScanRiskLevel = findViewById(R.id.tvEyeScanRiskLevel)
         tvEyeScanType = findViewById(R.id.tvEyeScanType)
         tvMainNameDis = findViewById(R.id.tvMainNameDis)
 
         shimmerScan = findViewById(R.id.shimmerScan)
-
 
 
         imgBack.setOnClickListener {
@@ -122,10 +109,11 @@ class EyeScan : AppCompatActivity() {
         }
         shimmerScan.startShimmer()
         shimmerScan.visibility = View.VISIBLE
+        cvEyeScanResult.visibility = View.GONE
         scanEyeImage()
     }
 
-     fun scanEyeImage(){
+      private fun scanEyeImage(){
         val file = File(path)
         val reqBody = RequestBody.create(MediaType.parse("multipart/form-data"),file)
         val body = MultipartBody.Part.createFormData("image",file.name,reqBody)
@@ -154,7 +142,7 @@ class EyeScan : AppCompatActivity() {
             }
         })
     }
-    @SuppressLint("SetTextI18n")
+
     fun populateViews(response: Response<EyeScanDao>){
 
         val predictions= response.body()?.predictions
@@ -191,7 +179,7 @@ class EyeScan : AppCompatActivity() {
                 "cataract_pic" to "Cataract",
                 "crossed_eyes_pic" to "Crossed Eyes",
                 "conjunctivitis_pic" to "Conjunctivitis",
-                "bulging_eyes_pic" to "Bluging Eye"
+                "bulging_eyes_pic" to "Bulging Eye"
             )
 
             // Filter and sort predictions by highest probability
@@ -199,13 +187,14 @@ class EyeScan : AppCompatActivity() {
                 .filter { it.tagName in tagNamesToDisplay }
                 .sortedByDescending { it.probability.toDouble() }
 
-
+            println("dsdsds "+sortedPredictions)
 
              var type = ""
              var riskRange=""
             for((index,predict) in sortedPredictions.withIndex()){
                 val probability = predict.probability.toDouble() * 100
                 val printname = tagPrintNames[predict.tagName]
+
                 if (index == 0) {
                     type = when {
                         predict.tagName.endsWith("_scan", ignoreCase = true) -> "Scanned"
@@ -223,9 +212,13 @@ class EyeScan : AppCompatActivity() {
                 }
 
                 // Set the probabilities to the TextViews
-                val textViewProbabiltyResourceId = resources.getIdentifier("tvPredictRate${String.format("%02d", index + 1)}", "id", packageName)
+                val textViewProbabiltyResourceId = resources.getIdentifier("tvPredictRate${String.format("%02d", index+1)}", "id", packageName)
                 val tvProb = findViewById<TextView>(textViewProbabiltyResourceId)
                 tvProb.text = "${String.format("%.4f", probability)} %"
+
+                val textViewNameResourceId = resources.getIdentifier("tvPredictDisName${String.format("%02d", index+1)}", "id", packageName)
+                val tvDisName = findViewById<TextView>(textViewNameResourceId)
+                tvDisName.text = printname
 
                 val textColor =when(riskRange){
                     "Low" -> Color.GREEN
@@ -235,13 +228,7 @@ class EyeScan : AppCompatActivity() {
                 }
                 tvProb.setTextColor(textColor)
                 tvEyeScanRiskLevel.setTextColor(textColor)
-
-                val textViewNameResourceId = resources.getIdentifier("tvPredictName${String.format("%02d", index + 1)}", "id", packageName)
-                val tvDisName = findViewById<TextView>(textViewNameResourceId)
-                tvDisName.text = printname
             }
-
-
         }
 
     }

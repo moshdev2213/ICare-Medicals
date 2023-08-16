@@ -298,7 +298,7 @@
                 android:layout_marginStart="24dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/montserrat"
-                android:text="Risk : "
+                android:text="Level : "
                 android:textColor="@color/bg_white"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -421,31 +421,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
             <TextView
-                android:id="@+id/tvPredictName03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/montserrat"
-                android:text="Glucoma"
-                android:textColor="@color/bg_white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView67"
-                app:layout_constraintTop_toBottomOf="@+id/textView63" />
-
-            <TextView
-                android:id="@+id/tvPredictName02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/montserrat"
-                android:text="Blug Eyes"
-                android:textColor="@color/bg_white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView61"
-                app:layout_constraintTop_toBottomOf="@+id/textView38" />
-
-            <TextView
-                android:id="@+id/tvPredictName01"
+                android:id="@+id/tvPredictDisName01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -455,6 +431,30 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/textView37"
                 app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+            <TextView
+                android:id="@+id/tvPredictDisName02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Cataract"
+                android:textColor="@color/bg_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/textView61"
+                app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+            <TextView
+                android:id="@+id/tvPredictDisName03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Cataract"
+                android:textColor="@color/bg_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/textView67"
+                app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
             <TextView
                 android:id="@+id/textView38"
@@ -697,6 +697,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView57"
-        app:srcCompat="@drawable/scanupload" />
+        app:srcCompat="@drawable/placeholder03" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

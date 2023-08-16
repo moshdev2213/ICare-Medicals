@@ -314,7 +314,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
         <TextView
-            android:id="@+id/tvPredictName03"
+            android:id="@+id/tvPredictDisName03Shimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -328,7 +328,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
         <TextView
-            android:id="@+id/tvPredictName02"
+            android:id="@+id/tvPredictDisName02Shimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -567,7 +567,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tvPredictName"
+                    android:id="@+id/tvPredictNameShimmers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
