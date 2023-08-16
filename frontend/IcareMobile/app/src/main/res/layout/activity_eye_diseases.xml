@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,19 +21,19 @@
         android:id="@+id/textView55"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/montserrat_medium"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Popular Diseases"
         android:textColor="@color/bg_white"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView21"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView21" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvScanEye"
-        android:layout_width="370dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
@@ -105,7 +105,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvChannel"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
