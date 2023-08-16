@@ -49,4 +49,6 @@ dependencies {
     implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
     //imagePicker
     implementation 'com.github.dhaval2404:imagepicker:2.1'
+    //shimmer effect
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

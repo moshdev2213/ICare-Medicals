@@ -16,6 +16,8 @@ import com.example.myapplication.EntityDao.EyeScanDao
 import com.example.myapplication.EntityDao.LoginDao
 import com.example.myapplication.RealPathUtil.RealPathUtil
 import com.example.myapplication.RetrofitService.RetrofitService
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.JsonObject
 import okhttp3.MediaType
@@ -52,6 +54,8 @@ class EyeScan : AppCompatActivity() {
     private lateinit var tvEyeScanType:TextView
     private lateinit var tvMainNameDis:TextView
 
+    private lateinit var shimmerScan: ShimmerFrameLayout
+
     private lateinit var path:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,11 +79,17 @@ class EyeScan : AppCompatActivity() {
         tvEyeScanType = findViewById(R.id.tvEyeScanType)
         tvMainNameDis = findViewById(R.id.tvMainNameDis)
 
+        shimmerScan = findViewById(R.id.shimmerScan)
+
+
 
         imgBack.setOnClickListener {
             finish()
         }
         cvScanEyeAct.setOnClickListener {
+            shimmerScan.startShimmer()
+            shimmerScan.visibility = View.VISIBLE
+            imgPlaceHolderUpload.visibility = View.GONE
             ImagePicker.with(this@EyeScan)
                 .crop()	    			//Crop image(Optional), Check Customization for more option
                 .compress(1024)			//Final image size will be less than 1 MB(Optional)
@@ -129,7 +139,8 @@ class EyeScan : AppCompatActivity() {
                 if(response.isSuccessful){
 
                     if (response.body()!=null){
-                        imgPlaceHolderUpload.visibility = View.GONE
+                        shimmerScan.stopShimmer()
+                        shimmerScan.visibility = View.GONE
                         cvEyeScanResult.visibility = View.VISIBLE
                         populateViews(response)
                     }

@@ -19,5 +19,7 @@
 
     <color name="validationdone">#31DBF5</color>
     <color name="validationerror">#FF585F</color>
+
+    <color name="shimmer">#181A20</color>
     <!--  app colors  -->
 </resources>
