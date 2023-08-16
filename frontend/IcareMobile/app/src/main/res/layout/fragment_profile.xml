@@ -200,7 +200,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView14" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView17"
+            android:id="@+id/cvLogoutUser"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="24dp"
@@ -252,7 +252,7 @@
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView17">
+            app:layout_constraintTop_toBottomOf="@+id/cvLogoutUser">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

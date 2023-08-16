@@ -3,7 +3,7 @@ package com.project.Icare.Service;
 import java.util.Optional;
 
 import com.project.Icare.Collection.Patient;
-import com.project.Icare.CollectionDao.LoginDao;
+import com.project.Icare.CollectionDTO.LoginDao;
 
 public interface AuthService {
 	Patient createPatient(Patient patient);
