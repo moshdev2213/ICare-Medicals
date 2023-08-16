@@ -108,7 +108,7 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:alpha="0.5"
+                android:alpha="0.8"
                 app:cardBackgroundColor="@color/bg_btn"
                 app:cardCornerRadius="50dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -118,15 +118,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/imageView11"
+                    <TextView
+                        android:id="@+id/tvPredictName3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="3"
+                        android:textColor="@color/bg_white"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView37"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/baseline_checklist_24" />
+                        app:layout_constraintVertical_bias="0.5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -202,7 +208,7 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:alpha="0.5"
+                android:alpha="0.8"
                 app:cardBackgroundColor="@color/bg_btn"
                 app:cardCornerRadius="50dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -212,20 +218,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/imageView11"
+                    <TextView
+                        android:id="@+id/tvPredictName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="2"
+                        android:textColor="@color/bg_white"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView37"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/baseline_checklist_24" />
+                        app:layout_constraintVertical_bias="0.5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/tvMainNameDis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -233,7 +245,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:text="CATARACT"
                 android:textColor="@color/bg_white"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -244,14 +256,63 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="52dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/montserrat"
                 android:text="Eye Disease Prediction"
                 android:textColor="@color/bg_white"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tvMainNameDis" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:alpha="0.5"
+                android:fontFamily="@font/montserrat"
+                android:text="Type : "
+                android:textColor="@color/bg_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:alpha="0.5"
+                android:fontFamily="@font/montserrat"
+                android:text="Risk : "
+                android:textColor="@color/bg_white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/tvEyeScanRiskLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="@font/montserrat"
+                android:text="97.77%"
+                android:textColor="@color/validationerror"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/textView33"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/tvEyeScanType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:fontFamily="@font/montserrat"
+                android:text="Not Scanned"
+                android:textColor="@color/bg_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
             <TextView
                 android:id="@+id/textView66"
@@ -270,11 +331,11 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgEyeUploadPreview"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_marginEnd="16dp"
                 android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/roundedImageView"
@@ -492,7 +553,7 @@
                 android:layout_marginTop="20dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/montserrat"
-                android:text="Scanned"
+                android:text="Completed"
                 android:textColor="@color/bg_white"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView14"
@@ -507,7 +568,7 @@
                 android:background="@color/bg_white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
             <View
                 android:id="@+id/view3"
@@ -570,7 +631,7 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:alpha="0.5"
+                android:alpha="0.8"
                 app:cardBackgroundColor="@color/bg_btn"
                 app:cardCornerRadius="50dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -580,15 +641,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/imageView11"
+                    <TextView
+                        android:id="@+id/tvPredictName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="1"
+                        android:textColor="@color/bg_white"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView37"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/baseline_checklist_24" />
+                        app:layout_constraintVertical_bias="0.5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

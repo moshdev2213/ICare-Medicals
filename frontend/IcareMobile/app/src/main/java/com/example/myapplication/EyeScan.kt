@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,6 +17,7 @@ import com.example.myapplication.EntityDao.LoginDao
 import com.example.myapplication.RealPathUtil.RealPathUtil
 import com.example.myapplication.RetrofitService.RetrofitService
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.gson.JsonObject
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -40,13 +43,14 @@ class EyeScan : AppCompatActivity() {
     private lateinit var tvScanTime:TextView
     private lateinit var tvScanDate:TextView
 
-    private lateinit var tvPredictRate01:TextView
-    private lateinit var tvPredictRate02:TextView
-    private lateinit var tvPredictRate03:TextView
 
     private lateinit var tvPredictName01:TextView
     private lateinit var tvPredictName02:TextView
     private lateinit var tvPredictName03:TextView
+
+    private lateinit var tvEyeScanRiskLevel:TextView
+    private lateinit var tvEyeScanType:TextView
+    private lateinit var tvMainNameDis:TextView
 
     private lateinit var path:String
 
@@ -63,12 +67,13 @@ class EyeScan : AppCompatActivity() {
         cvEyeScanChannelDoc = findViewById(R.id.cvEyeScanChannelDoc)
         tvScanTime = findViewById(R.id.tvScanTime)
         tvScanDate = findViewById(R.id.tvScanDate)
-        tvPredictRate01 = findViewById(R.id.tvPredictRate01)
-        tvPredictRate02 = findViewById(R.id.tvPredictRate02)
-        tvPredictRate03 = findViewById(R.id.tvPredictRate03)
         tvPredictName01 = findViewById(R.id.tvPredictName01)
         tvPredictName02 = findViewById(R.id.tvPredictName02)
         tvPredictName03 = findViewById(R.id.tvPredictName03)
+
+        tvEyeScanRiskLevel = findViewById(R.id.tvEyeScanRiskLevel)
+        tvEyeScanType = findViewById(R.id.tvEyeScanType)
+        tvMainNameDis = findViewById(R.id.tvMainNameDis)
 
 
         imgBack.setOnClickListener {
@@ -122,10 +127,11 @@ class EyeScan : AppCompatActivity() {
         call.enqueue(object : Callback<EyeScanDao> {
             override fun onResponse(call: Call<EyeScanDao>, response: Response<EyeScanDao>) {
                 if(response.isSuccessful){
-                    println(response.body())
+
                     if (response.body()!=null){
                         imgPlaceHolderUpload.visibility = View.GONE
                         cvEyeScanResult.visibility = View.VISIBLE
+                        populateViews(response)
                     }
                 }else{
                     Toast.makeText(this@EyeScan,"Invalid response", Toast.LENGTH_SHORT).show()
@@ -136,5 +142,96 @@ class EyeScan : AppCompatActivity() {
                 Toast.makeText(this@EyeScan,"Failed",Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    @SuppressLint("SetTextI18n")
+    fun populateViews(response: Response<EyeScanDao>){
+
+        val predictions= response.body()?.predictions
+
+        // Get the first three predictions
+        val topThreePredictions = predictions?.take(3)
+
+        if(topThreePredictions!=null){
+
+
+            // Filter out disease with specific tag names
+            val tagNamesToDisplay  = listOf(
+                    "diabetic_retinopathy_scan",
+                    "glaucoma_scan",
+                    "cataract_scan",
+                    "cellulitis_pic",
+                    "normal_scan",
+                    "uveitis_pic",
+                    "glaucoma_pic",
+                    "cataract_pic",
+                    "crossed_eyes_pic",
+                    "conjunctivitis_pic",
+                    "bulging_eyes_pic"
+            )
+
+            val tagPrintNames = mapOf(
+                "diabetic_retinopathy_scan" to "Diabetic Retinopathy",
+                "glaucoma_scan" to "Glaucoma",
+                "cataract_scan" to "Cataract",
+                "cellulitis_pic" to "Cellulitis",
+                "normal_scan" to "Healthy",
+                "uveitis_pic" to "Uveitis",
+                "glaucoma_pic" to "Glaucoma",
+                "cataract_pic" to "Cataract",
+                "crossed_eyes_pic" to "Crossed Eyes",
+                "conjunctivitis_pic" to "Conjunctivitis",
+                "bulging_eyes_pic" to "Bluging Eye"
+            )
+
+            // Filter and sort predictions by highest probability
+            val sortedPredictions = topThreePredictions
+                .filter { it.tagName in tagNamesToDisplay }
+                .sortedByDescending { it.probability.toDouble() }
+
+
+
+             var type = ""
+             var riskRange=""
+            for((index,predict) in sortedPredictions.withIndex()){
+                val probability = predict.probability.toDouble() * 100
+                val printname = tagPrintNames[predict.tagName]
+                if (index == 0) {
+                    type = when {
+                        predict.tagName.endsWith("_scan", ignoreCase = true) -> "Scanned"
+                        predict.tagName.endsWith("_pic", ignoreCase = true) -> "Not Scanned"
+                        else -> "Not Found"
+                    }
+                    riskRange = when{
+                        probability< 45 ->"Low"
+                            probability< 75 ->"Moderate"
+                            else ->"High"
+                    }
+                    tvEyeScanRiskLevel.text = "${String.format("%.4f", probability)} %"
+                    tvMainNameDis.text = printname?.uppercase()
+                    tvEyeScanType.text = type
+                }
+
+                // Set the probabilities to the TextViews
+                val textViewProbabiltyResourceId = resources.getIdentifier("tvPredictRate${String.format("%02d", index + 1)}", "id", packageName)
+                val tvProb = findViewById<TextView>(textViewProbabiltyResourceId)
+                tvProb.text = "${String.format("%.4f", probability)} %"
+
+                val textColor =when(riskRange){
+                    "Low" -> Color.GREEN
+                    "Moderate" -> Color.YELLOW
+                    "High" -> Color.RED
+                    else -> Color.GREEN
+                }
+                tvProb.setTextColor(textColor)
+                tvEyeScanRiskLevel.setTextColor(textColor)
+
+                val textViewNameResourceId = resources.getIdentifier("tvPredictName${String.format("%02d", index + 1)}", "id", packageName)
+                val tvDisName = findViewById<TextView>(textViewNameResourceId)
+                tvDisName.text = printname
+            }
+
+
+        }
+
     }
 }
