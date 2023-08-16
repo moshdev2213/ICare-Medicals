@@ -87,8 +87,7 @@ class EyeScan : AppCompatActivity() {
             finish()
         }
         cvScanEyeAct.setOnClickListener {
-            shimmerScan.startShimmer()
-            shimmerScan.visibility = View.VISIBLE
+
             imgPlaceHolderUpload.visibility = View.GONE
             ImagePicker.with(this@EyeScan)
                 .crop()	    			//Crop image(Optional), Check Customization for more option
@@ -120,8 +119,9 @@ class EyeScan : AppCompatActivity() {
                 RealPathUtil().getRealPath(this@EyeScan, it).toString()
             }.toString()
 
-            println(path)
         }
+        shimmerScan.startShimmer()
+        shimmerScan.visibility = View.VISIBLE
         scanEyeImage()
     }
 
@@ -218,7 +218,7 @@ class EyeScan : AppCompatActivity() {
                             else ->"High"
                     }
                     tvEyeScanRiskLevel.text = "${String.format("%.4f", probability)} %"
-                    tvMainNameDis.text = printname?.uppercase()
+                    tvMainNameDis.text = printname
                     tvEyeScanType.text = type
                 }
 
