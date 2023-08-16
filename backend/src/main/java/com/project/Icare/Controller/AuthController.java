@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.Icare.Collection.Patient;
-import com.project.Icare.CollectionDao.LoginDao;
+import com.project.Icare.CollectionDTO.LoginDao;
 import com.project.Icare.Exception.ResourceNotFound;
 import com.project.Icare.Service.AuthService;
 

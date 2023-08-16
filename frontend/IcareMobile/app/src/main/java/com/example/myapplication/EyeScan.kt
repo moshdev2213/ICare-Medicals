@@ -6,8 +6,22 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
+import com.example.myapplication.APIServices.Authentication
+import com.example.myapplication.APIServices.EyeScanAPI
+import com.example.myapplication.EntityDao.EyeScanDao
+import com.example.myapplication.EntityDao.LoginDao
+import com.example.myapplication.RealPathUtil.RealPathUtil
+import com.example.myapplication.RetrofitService.RetrofitService
 import com.github.dhaval2404.imagepicker.ImagePicker
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -33,6 +47,8 @@ class EyeScan : AppCompatActivity() {
     private lateinit var tvPredictName01:TextView
     private lateinit var tvPredictName02:TextView
     private lateinit var tvPredictName03:TextView
+
+    private lateinit var path:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,9 +86,8 @@ class EyeScan : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        imgPlaceHolderUpload.visibility = View.GONE
-        cvEyeScanResult.visibility = View.VISIBLE
         imgEyeUploadPreview.setImageURI(data?.data)
+
 
         val outputDateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.getDefault())
         val date = Date() // Replace this with your desired date
@@ -84,5 +99,42 @@ class EyeScan : AppCompatActivity() {
         val currentTime = Calendar.getInstance().time
         val formattedTime = outputTimeFormat.format(currentTime)
         tvScanTime.text = formattedTime
+
+        if (data != null) {
+            path = data.data?.let {
+                RealPathUtil().getRealPath(this@EyeScan, it).toString()
+            }.toString()
+
+            println(path)
+        }
+        scanEyeImage()
+    }
+
+     fun scanEyeImage(){
+        val file = File(path)
+        val reqBody = RequestBody.create(MediaType.parse("multipart/form-data"),file)
+        val body = MultipartBody.Part.createFormData("image",file.name,reqBody)
+
+        val retrofitService = RetrofitService()
+        val scanApi = retrofitService.getRetrofit().create(EyeScanAPI::class.java)
+
+        val call:Call<EyeScanDao> = scanApi.eyeScanPredict(body)
+        call.enqueue(object : Callback<EyeScanDao> {
+            override fun onResponse(call: Call<EyeScanDao>, response: Response<EyeScanDao>) {
+                if(response.isSuccessful){
+                    println(response.body())
+                    if (response.body()!=null){
+                        imgPlaceHolderUpload.visibility = View.GONE
+                        cvEyeScanResult.visibility = View.VISIBLE
+                    }
+                }else{
+                    Toast.makeText(this@EyeScan,"Invalid response", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<EyeScanDao>, t: Throwable) {
+                Toast.makeText(this@EyeScan,"Failed",Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

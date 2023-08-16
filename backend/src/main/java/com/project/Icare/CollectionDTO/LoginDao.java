@@ -1,4 +1,4 @@
-package com.project.Icare.CollectionDao;
+package com.project.Icare.CollectionDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

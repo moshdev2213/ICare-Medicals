@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.Icare.Collection.Patient;
-import com.project.Icare.CollectionDao.LoginDao;
+import com.project.Icare.CollectionDTO.LoginDao;
 import com.project.Icare.Repo.Authrepo;
 import com.project.Icare.Service.AuthService;
 
