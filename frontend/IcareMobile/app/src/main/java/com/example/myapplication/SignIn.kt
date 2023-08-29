@@ -59,7 +59,7 @@ class SignIn : AppCompatActivity() {
 
         if(count==2){
             progressLoader = ProgressLoader(
-                this@SignIn,"Vegging Login","Please Wait"
+                this@SignIn,"Verifying Login","Please Wait"
             )
             progressLoader.startProgressLoader()
 
