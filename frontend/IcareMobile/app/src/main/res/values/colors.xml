@@ -21,5 +21,6 @@
     <color name="validationerror">#FF585F</color>
 
     <color name="shimmer">#181A20</color>
+    <color name="shimmerOnText">#353945</color>
     <!--  app colors  -->
 </resources>

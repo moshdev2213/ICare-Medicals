@@ -1,11 +1,13 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.APIServices.Authentication
 import com.example.myapplication.DialogAlerts.ProgressLoader
@@ -15,13 +17,11 @@ import com.example.myapplication.RetrofitService.RetrofitService
 import com.example.myapplication.Validations.ValidationResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 class SignIn : AppCompatActivity() {
     private lateinit var etPassSignIn:EditText
     private lateinit var etEmailSignIn:EditText
@@ -31,7 +31,6 @@ class SignIn : AppCompatActivity() {
     private lateinit var progressLoader: ProgressLoader
     private var count = 0;
 
-    private val myCoroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -70,12 +69,13 @@ class SignIn : AppCompatActivity() {
                 LoginDao(email,password)
             )
             call.enqueue(object : Callback<LoginDao>{
-
                 override fun onResponse(call: Call<LoginDao>, response: Response<LoginDao>) {
                     if (response.isSuccessful){
                         val patient = response.body()
                         if(patient !=null){
-                            startActivity(Intent(this@SignIn,Home::class.java))
+                            val intent = Intent(this@SignIn, Home::class.java)
+                            intent.putExtra("patientEmPass", patient) // Assuming "patient" is Parcelable or Serializable
+                            startActivity(intent)
                             progressLoader.dismissProgressLoader()
                             finish()
                         }
