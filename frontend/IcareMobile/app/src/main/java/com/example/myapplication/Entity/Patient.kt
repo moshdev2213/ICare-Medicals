@@ -1,5 +1,7 @@
 package com.example.myapplication.Entity
 
+import java.io.Serializable
+
 data class Patient(
     val email:String,
     val password:String,
@@ -11,4 +13,4 @@ data class Patient(
     val age:Int,
     val address: Address,
     val date: String
-)
+):Serializable

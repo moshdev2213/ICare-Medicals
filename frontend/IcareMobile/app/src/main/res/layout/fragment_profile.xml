@@ -12,25 +12,30 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView15"
+            android:id="@+id/imgEditUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/baseline_edit_24"
             app:layout_constraintBottom_toBottomOf="@+id/textView39"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
             app:layout_constraintTop_toTopOf="@+id/textView39" />
 
         <TextView
             android:id="@+id/textView39"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="Profile"
             android:textColor="@color/bg_white"
             android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/imgEditUser"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,9 +43,9 @@
             android:id="@+id/cardView13"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +70,7 @@
                     app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 <TextView
-                    android:id="@+id/textView49"
+                    android:id="@+id/tvProfileFragName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -78,7 +83,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView48"
+                    android:id="@+id/tvProfileFragEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -89,7 +94,7 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView49"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfileFragName"
                     app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -98,7 +103,7 @@
             android:id="@+id/cardView14"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
@@ -125,7 +130,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView45"
+                    android:id="@+id/tvProfileFragBloodType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -143,9 +148,9 @@
             android:id="@+id/cardView15"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_marginStart="23dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -199,13 +204,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView14" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvLogoutUser"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -239,15 +245,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView16"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvDeleteUser"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
             app:cardBackgroundColor="@color/design_default_color_error"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -281,7 +288,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -11,9 +11,9 @@
         android:id="@+id/cardView20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView76"
+                android:id="@+id/tvEmailPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -38,7 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView75"
+                android:id="@+id/tvNamePro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -51,7 +51,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView76" />
+                app:layout_constraintTop_toBottomOf="@+id/tvEmailPro" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -59,9 +59,9 @@
         android:id="@+id/cardView22"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextText11"
+                android:id="@+id/etStreetPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -90,13 +90,13 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/editTextText12"
+                app:layout_constraintEnd_toStartOf="@+id/spDistrictPro"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+                app:layout_constraintTop_toBottomOf="@+id/etUNamePro" />
 
             <Spinner
-                android:id="@+id/editTextText13"
+                android:id="@+id/spProvincePro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -106,13 +106,13 @@
                 android:background="@drawable/custom_input"
                 android:entries="@array/provinces"
                 android:padding="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/editTextText14"
+                app:layout_constraintEnd_toStartOf="@+id/spGenderPro"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText11" />
+                app:layout_constraintTop_toBottomOf="@+id/etStreetPro" />
 
             <Spinner
-                android:id="@+id/editTextText15"
+                android:id="@+id/spBloodPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -124,13 +124,13 @@
                 android:entries="@array/bGroup"
                 android:padding="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/editTextText16"
+                app:layout_constraintEnd_toStartOf="@+id/etAgePro"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
+                app:layout_constraintTop_toBottomOf="@+id/spProvincePro" />
 
             <EditText
-                android:id="@+id/editTextText16"
+                android:id="@+id/etAgePro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -140,19 +140,19 @@
                 android:ems="10"
                 android:fontFamily="@font/montserrat"
                 android:hint="Age"
-                android:inputType="text"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextText15"
+                app:layout_constraintBottom_toBottomOf="@+id/spBloodPro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editTextText15"
-                app:layout_constraintTop_toTopOf="@+id/editTextText15" />
+                app:layout_constraintStart_toEndOf="@+id/spBloodPro"
+                app:layout_constraintTop_toTopOf="@+id/spBloodPro" />
 
             <Spinner
-                android:id="@+id/editTextText14"
+                android:id="@+id/spGenderPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -160,14 +160,14 @@
                 android:background="@drawable/custom_input"
                 android:entries="@array/gender"
                 android:padding="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextText13"
+                app:layout_constraintBottom_toBottomOf="@+id/spProvincePro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editTextText13"
-                app:layout_constraintTop_toTopOf="@+id/editTextText13" />
+                app:layout_constraintStart_toEndOf="@+id/spProvincePro"
+                app:layout_constraintTop_toTopOf="@+id/spProvincePro" />
 
             <Spinner
-                android:id="@+id/editTextText12"
+                android:id="@+id/spDistrictPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -178,11 +178,11 @@
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editTextText11"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+                app:layout_constraintStart_toEndOf="@+id/etStreetPro"
+                app:layout_constraintTop_toBottomOf="@+id/etUNamePro" />
 
             <EditText
-                android:id="@+id/editTextText10"
+                android:id="@+id/etUNamePro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -201,10 +201,10 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+                app:layout_constraintTop_toBottomOf="@+id/etFNamePro" />
 
             <EditText
-                android:id="@+id/editTextText5"
+                android:id="@+id/etEmailPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -214,6 +214,7 @@
                 android:alpha="0.5"
                 android:background="@drawable/custom_input"
                 android:ems="10"
+                android:enabled="false"
                 android:fontFamily="@font/montserrat"
                 android:hint="Email"
                 android:inputType="text"
@@ -221,13 +222,13 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/editTextText6"
+                app:layout_constraintEnd_toStartOf="@+id/etPasswordPro"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextText7"
+                android:id="@+id/etFNamePro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -244,13 +245,13 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/editTextText8"
+                app:layout_constraintEnd_toStartOf="@+id/etLNamePro"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPro" />
 
             <EditText
-                android:id="@+id/editTextText8"
+                android:id="@+id/etLNamePro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -265,14 +266,14 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextText7"
+                app:layout_constraintBottom_toBottomOf="@+id/etFNamePro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editTextText7"
-                app:layout_constraintTop_toTopOf="@+id/editTextText7" />
+                app:layout_constraintStart_toEndOf="@+id/etFNamePro"
+                app:layout_constraintTop_toTopOf="@+id/etFNamePro" />
 
             <EditText
-                android:id="@+id/editTextText6"
+                android:id="@+id/etPasswordPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -287,11 +288,11 @@
                 android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextText5"
+                app:layout_constraintBottom_toBottomOf="@+id/etEmailPro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editTextText5"
-                app:layout_constraintTop_toTopOf="@+id/editTextText5" />
+                app:layout_constraintStart_toEndOf="@+id/etEmailPro"
+                app:layout_constraintTop_toTopOf="@+id/etEmailPro" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -309,7 +310,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView27"
+        android:id="@+id/imgBackPro"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -322,14 +323,14 @@
         android:id="@+id/imageView23"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
         android:scaleType="centerCrop"
         android:src="@drawable/doctorpic"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView18"
         app:layout_constraintEnd_toStartOf="@+id/cardView18"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView27"
+        app:layout_constraintTop_toTopOf="@+id/cardView18"
         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
     <androidx.cardview.widget.CardView
@@ -338,7 +339,7 @@
         android:layout_height="120dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -357,10 +358,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat"
                 android:text="72 Bpm"
                 android:textColor="@color/bg_white"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -388,13 +391,13 @@
         android:layout_width="100dp"
         android:layout_height="120dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView19"
         app:layout_constraintEnd_toStartOf="@+id/cardView19"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView72">
+        app:layout_constraintTop_toTopOf="@+id/cardView19">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -418,16 +421,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView79"
+                android:id="@+id/tvBloodTypePro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat"
                 android:text="A+"
                 android:textColor="@color/bg_white"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView77" />
@@ -438,8 +443,8 @@
         android:id="@+id/cardView21"
         android:layout_width="0dp"
         android:layout_height="90dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="-16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
