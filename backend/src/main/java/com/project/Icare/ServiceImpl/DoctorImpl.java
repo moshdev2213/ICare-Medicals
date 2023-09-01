@@ -2,6 +2,8 @@ package com.project.Icare.ServiceImpl;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,11 @@ public class DoctorImpl implements DoctorService {
 		doctor.setAdded(formattedDate);
 		Doctor doctorRes = doctorRepo.save(doctor);
 		return doctorRes;
+	}
+
+	@Override
+	public Optional<List<Doctor>> getAllActiveDoctors(int status) {
+		return doctorRepo.findByStatus(status);
 	}
 
 }
