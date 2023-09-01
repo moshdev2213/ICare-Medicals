@@ -27,7 +27,7 @@ class Home : AppCompatActivity() {
     private lateinit var bottomNavigationView:BottomNavigationView
     private lateinit var frameLayout: FrameLayout
     private lateinit var shimmerScan: ShimmerFrameLayout
-
+    private var patientObject:Patient?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -41,17 +41,17 @@ class Home : AppCompatActivity() {
 
          getPatientDetails(receivedPatient){patient->
             if (patient!=null){
-                println(patient)
+                patientObject=patient
             }
         }
 
-        replaceFrag(IndexFragment(),receivedPatient)
+        replaceFrag(IndexFragment(),patientObject)
         bottomNavigationView.setOnItemSelectedListener{
             when(it.itemId){
-                R.id.profile->replaceFrag(ProfileFragment(),receivedPatient)
-                R.id.home->replaceFrag(IndexFragment(),receivedPatient)
-                R.id.reports->replaceFrag(ReportFragment(),receivedPatient)
-                R.id.doctors->replaceFrag(DoctorFragment(),receivedPatient)
+                R.id.profile->replaceFrag(ProfileFragment(),patientObject)
+                R.id.home->replaceFrag(IndexFragment(),patientObject)
+                R.id.reports->replaceFrag(ReportFragment(),patientObject)
+                R.id.doctors->replaceFrag(DoctorFragment(),patientObject)
 
                 else->{
 
@@ -60,13 +60,13 @@ class Home : AppCompatActivity() {
             true
         }
     }
-    private fun replaceFrag(fragment: Fragment , patient: LoginDao ?=null){
+    private fun replaceFrag(fragment: Fragment , patient: Patient ?=null){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
         if(patient !=null){
             val bundle = Bundle()
-            bundle.putSerializable("patientEmPass",patient)
+            bundle.putSerializable("patientObject",patient)
             fragment.arguments = bundle
         }
 
