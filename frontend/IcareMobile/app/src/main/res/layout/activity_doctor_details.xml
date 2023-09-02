@@ -32,17 +32,17 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvScanEye"
-        android:layout_width="370dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30">
+        app:layout_constraintTop_toBottomOf="@+id/tvDocDetailText">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/tvDocTimeRangeDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -96,12 +96,16 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView10"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="120dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
@@ -126,15 +130,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/tvDocExpDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="90 +"
                 android:textColor="@color/bg_white"
                 android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -142,14 +148,15 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="200dp"
+        android:id="@+id/cardView6"
+        android:layout_width="0dp"
         android:layout_height="120dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cardView10"
         app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
@@ -167,36 +174,25 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Experience"
+                android:text="Joined"
                 android:textColor="@color/bg_white"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/tvDocJoinedDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="10"
+                android:text="2020.20.20"
                 android:textColor="@color/bg_white"
-                android:textSize="34sp"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="years"
-                android:textColor="@color/bg_white"
-                android:textSize="30sp"
-                app:layout_constraintStart_toEndOf="@+id/textView27"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -204,24 +200,27 @@
 
     <TextView
         android:id="@+id/textView29"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="priority areas of specialization activities :"
         android:textColor="@color/bg_white"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView10" />
 
     <TextView
-        android:id="@+id/textView30"
-        android:layout_width="370dp"
+        android:id="@+id/tvDocDetailText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:alpha="0.5"
         android:fontFamily="@font/montserrat"
         android:text="lorem ipsum is a dummy text generated to fill the dummy areeas in order to fill the gaps"
@@ -233,11 +232,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="120dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/bg_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +252,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/imgDocPicDetail"
                 android:layout_width="85dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="24dp"
@@ -265,7 +264,7 @@
                 app:shapeAppearanceOverlay="@style/roundedImageView" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/tvDocNameDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -274,11 +273,11 @@
                 android:text="Dr.  Samantha Willy"
                 android:textColor="@color/bg_white"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                app:layout_constraintStart_toEndOf="@+id/imgDocPicDetail"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/tvDocSpecialDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -287,11 +286,11 @@
                 android:text="Eye Care Specialist"
                 android:textColor="@color/bg_white"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintStart_toEndOf="@+id/imgDocPicDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvDocNameDetail" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/tvDocLocationDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -302,18 +301,19 @@
                 android:textColor="@color/bg_green"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintStart_toEndOf="@+id/imgDocPicDetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvDocSpecialDetail" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvChannel"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
         app:cardBackgroundColor="@color/bg_btn"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -323,10 +323,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView24"
@@ -367,7 +364,7 @@
                 app:layout_constraintVertical_bias="0.489" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
