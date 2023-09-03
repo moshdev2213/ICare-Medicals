@@ -15,7 +15,7 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="Hi Emily 👋"
@@ -28,7 +28,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="-5dp"
             android:fontFamily="@font/montserrat"
             android:text="Sat ,9 Jul"
@@ -41,7 +41,7 @@
             android:id="@+id/imageView2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="24dp"
             android:src="@drawable/splash"
             app:layout_constraintBottom_toBottomOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,12 +73,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cvScanEye" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvChannel"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
+            android:clickable="true"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
@@ -109,15 +110,16 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvDisease"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
@@ -147,13 +149,13 @@
                     app:layout_constraintVertical_bias="0.5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             app:cardBackgroundColor="@color/bg_secondary"
@@ -214,9 +216,9 @@
             android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
@@ -261,12 +263,13 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvScanEye"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
+            android:clickable="true"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
@@ -297,7 +300,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView5"
@@ -305,7 +308,7 @@
             android:layout_height="150dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
@@ -364,7 +367,7 @@
             android:id="@+id/cardView8"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             app:cardBackgroundColor="@color/bg_secondary"
@@ -428,7 +431,7 @@
             android:layout_height="150dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/bg_secondary"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"

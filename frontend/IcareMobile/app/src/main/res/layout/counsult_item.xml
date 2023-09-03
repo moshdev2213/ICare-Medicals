@@ -95,6 +95,8 @@
             android:text="2023.09.09"
             android:textColor="@color/bg_white"
             android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView13"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -109,6 +111,8 @@
             android:text="10:30 AM"
             android:textColor="@color/bg_white"
             android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView14"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView13"
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -118,11 +122,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
             android:alpha="0.5"
             android:fontFamily="@font/montserrat"
             android:text="completed"
             android:textColor="@color/bg_white"
             android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView14"
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -172,6 +179,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/tvScanDate"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/baseline_calendar_month_24" />
@@ -183,6 +192,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/tvScanTime"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvScanDate"
             app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/baseline_access_time_filled_24" />
@@ -194,6 +205,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/textView35"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvScanTime"
             app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/baseline_done_all_24" />
