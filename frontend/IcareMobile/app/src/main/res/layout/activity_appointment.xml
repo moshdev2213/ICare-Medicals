@@ -36,6 +36,7 @@
                 android:id="@+id/textView75"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Appointment Details"
                 android:textColor="@color/bg_white"
@@ -54,7 +55,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bgwarning" />
+                app:srcCompat="@drawable/qrcode" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView3"
@@ -366,23 +367,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
-            <TextView
-                android:id="@+id/textView45"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="24dp"
-                android:alpha="0.5"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="By clicking the &quot;Confirmation&quot; button, you acknowledge and accept ICARE Health and Medical's terms and conditions, which outline the guidelines and agreements governing our healthcare services and your interaction with our platform."
-                android:textColor="@color/bg_white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView34" />
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView2"
                 android:layout_width="0dp"
@@ -394,7 +378,7 @@
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView45">
+                app:layout_constraintTop_toBottomOf="@+id/textView34">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -453,7 +437,7 @@
                         android:layout_marginTop="8dp"
                         android:alpha="0.5"
                         android:fontFamily="@font/montserrat_medium"
-                        android:text="Patient Name "
+                        android:text="Patient Name"
                         android:textColor="@color/bg_white"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toStartOf="@+id/tvPatientNameAppo"

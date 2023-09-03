@@ -1,18 +1,21 @@
 package com.example.myapplication.Fragment
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.APIServices.DoctorAPI
 import com.example.myapplication.Adapter.DoctorAdapter
 import com.example.myapplication.DoctorDetails
 import com.example.myapplication.Entity.Doctor
+import com.example.myapplication.Entity.Patient
 import com.example.myapplication.R
 import com.example.myapplication.RetrofitService.RetrofitService
 import com.facebook.shimmer.ShimmerFrameLayout
@@ -24,12 +27,17 @@ class DoctorFragment : Fragment() {
     private lateinit var rvFragDocList :RecyclerView
     private lateinit var adapter: DoctorAdapter
     private lateinit var shimmerDocFrag: ShimmerFrameLayout
+    private lateinit var out: Patient
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_doctor, container, false)
+
+        out = arguments?.getSerializable("patientObject", Patient::class.java)!!
+
         shimmerDocFrag = view.findViewById(R.id.shimmerDocFrag)
         shimmerDocFrag.startShimmer()
         initRecyclerView(view)
@@ -47,8 +55,11 @@ class DoctorFragment : Fragment() {
     }
 
     private fun doctorCardClicked(doctor: Doctor) {
-        val bundle = Bundle()
-        bundle.putSerializable("doctor", doctor)
+        val bundle = Bundle().apply {
+            putSerializable("doctor", doctor)
+            putSerializable("patObj",out)
+        }
+
 
         val intent = Intent(requireContext(),DoctorDetails::class.java)
         intent.putExtras(bundle)
