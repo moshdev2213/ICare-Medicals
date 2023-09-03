@@ -1,15 +1,23 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
+import android.content.DialogInterface
 import android.content.Intent
+import android.icu.text.Transliterator.Position
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import com.example.myapplication.Entity.Doctor
+import com.example.myapplication.Entity.Patient
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 
@@ -26,6 +34,9 @@ class DoctorDetails : AppCompatActivity() {
     private lateinit var cvChannel:CardView
 
     private lateinit var doctor:Doctor
+    private lateinit var patObj:Patient
+    private lateinit var datePickerDialog: DatePickerDialog
+    var selectedDate =""
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +45,7 @@ class DoctorDetails : AppCompatActivity() {
 
         val bundle = intent.extras
         doctor = bundle?.getSerializable("doctor", Doctor::class.java)!!
+        patObj = bundle?.getSerializable("patObj",Patient::class.java)!!
 
         tvDocExpDetail = findViewById(R.id.tvDocExpDetail)
         tvDocNameDetail = findViewById(R.id.tvDocNameDetail)
@@ -60,11 +72,38 @@ class DoctorDetails : AppCompatActivity() {
 
         tvDocJoinedDetail.text = getFormattedDate(doctor.added)
         cvChannel.setOnClickListener {
-            val intent = Intent(this,Appointment::class.java)
-            startActivity(intent)
+            // Get the current date
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+
+            datePickerDialog=DatePickerDialog(this,
+                { datePicker: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
+                    // Handle the selected date
+                    selectedDate = "$selectedYear.${selectedMonth + 1}.$selectedDay"
+                    val intent = Intent(this,Appointment::class.java)
+                    val bundle = Bundle().apply {
+                        putSerializable("doctor", doctor)
+                        putSerializable("patObj",patObj)
+                        putString("appointmentDate",selectedDate)
+                    }
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                },year,month,day)
+
+            // Show the DatePickerDialog
+            datePickerDialog.show()
+
+            // Prevent the dialog from closing when touched outside
+            datePickerDialog.setCanceledOnTouchOutside(false)
+            val negativeButton = datePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+            negativeButton.visibility = View.GONE
         }
 
     }
+
     private fun getFormattedDate(date:String): String {
         val originalDateString = date
 
