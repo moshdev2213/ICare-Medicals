@@ -2,6 +2,8 @@ package com.project.Icare.ServiceImpl;
 
 import java.net.URL;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project.Icare.CollectionDTO.CustomVisionDTO;
 import com.project.Icare.Exception.ImageException;
-import com.project.Icare.RestTemplate.CustomVisionAPI;
 import com.project.Icare.Service.CustomVisionService;
 @Service
 public class CustomVisionImpl implements CustomVisionService {

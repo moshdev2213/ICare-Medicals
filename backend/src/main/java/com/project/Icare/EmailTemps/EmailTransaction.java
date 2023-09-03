@@ -1,10 +1,16 @@
 package com.project.Icare.EmailTemps;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import jakarta.mail.MessagingException;
+@Service
 public class EmailTransaction {
-	public static String mailTrans ;
-	
-	public static void getMailTrans(String refNum,String date,String docName,String patName,String charge,String totCharge) {
-		mailTrans = "<!DOCTYPE html>\r\n"
+	@Autowired
+	private EmailSenderService emailSenderService;
+	public void sendHtmlEmail(String toMail,String subject,String refNum,String date,String docName,String patName,String charge,String totCharge) throws MessagingException {
+		
+		String mailTrans = "<!DOCTYPE html>\r\n"
 				+ "\r\n"
 				+ "<html lang=\"en\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:v=\"urn:schemas-microsoft-com:vml\">\r\n"
 				+ "\r\n"
@@ -611,7 +617,7 @@ public class EmailTransaction {
 				+ "                                                                <div\r\n"
 				+ "                                                                    style=\"color:#232323;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:150%;text-align:right;mso-line-height-alt:21px;\">\r\n"
 				+ "                                                                    <p style=\"margin: 0; word-break: break-word;\">\r\n"
-				+ "                                                                        <span>\"+patName+\"</span>\r\n"
+				+ "                                                                        <span>"+patName+"</span>\r\n"
 				+ "                                                                    </p>\r\n"
 				+ "                                                                </div>\r\n"
 				+ "                                                            </td>\r\n"
@@ -727,7 +733,7 @@ public class EmailTransaction {
 				+ "                                                                <div\r\n"
 				+ "                                                                    style=\"color:#232323;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;font-weight:400;line-height:150%;text-align:right;mso-line-height-alt:21px;\">\r\n"
 				+ "                                                                    <p style=\"margin: 0; word-break: break-word;\">\r\n"
-				+ "                                                                        <span>\"+docName+\"</span>\r\n"
+				+ "                                                                        <span>"+docName+"</span>\r\n"
 				+ "                                                                    </p>\r\n"
 				+ "                                                                </div>\r\n"
 				+ "                                                            </td>\r\n"
@@ -1156,6 +1162,7 @@ public class EmailTransaction {
 				+ "</body>\r\n"
 				+ "\r\n"
 				+ "</html>";
+		emailSenderService.sendsSimpleEmail(toMail, mailTrans, subject);
 		
 	}
 	
