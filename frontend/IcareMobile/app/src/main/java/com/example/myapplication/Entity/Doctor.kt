@@ -10,6 +10,7 @@ data class Doctor(
     var description:String,
     var specializing:String,
     var status:Int,
+    var amount:Double,
     var cured:Int,
     var venue:String,
     var added:String

@@ -26,6 +26,7 @@ public class Doctor {
 	private String description;
 	private String specializing;
 	private int status;
+	private double amount;
 	private int cured;
 	private String venue;
 	private String added;

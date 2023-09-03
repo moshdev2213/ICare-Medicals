@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ class DoctorDetails : AppCompatActivity() {
     private lateinit var tvDocSpecialDetail:TextView
     private lateinit var tvDocLocationDetail:TextView
     private lateinit var imgDocPicDetail:ImageView
+    private lateinit var imgBackBtn:ImageView
     private lateinit var tvDocExpDetail:TextView
     private lateinit var tvDocJoinedDetail:TextView
     private lateinit var tvDocDetailText:TextView
@@ -41,6 +43,7 @@ class DoctorDetails : AppCompatActivity() {
         tvDocLocationDetail = findViewById(R.id.tvDocLocationDetail)
         tvDocDetailText = findViewById(R.id.tvDocDetailText)
         imgDocPicDetail = findViewById(R.id.imgDocPicDetail)
+        imgBackBtn = findViewById(R.id.imgBackBtn)
         cvChannel = findViewById(R.id.cvChannel)
 
         tvDocNameDetail.text = doctor.firstName.capitalize()
@@ -51,7 +54,19 @@ class DoctorDetails : AppCompatActivity() {
         tvDocExpDetail.text=doctor.cured.toString()
         tvDocDetailText.text = doctor.description
 
-        val originalDateString = doctor.added
+        imgBackBtn.setOnClickListener {
+            finish()
+        }
+
+        tvDocJoinedDetail.text = getFormattedDate(doctor.added)
+        cvChannel.setOnClickListener {
+            val intent = Intent(this,Appointment::class.java)
+            startActivity(intent)
+        }
+
+    }
+    private fun getFormattedDate(date:String): String {
+        val originalDateString = date
 
         // Parse the original date string
         val originalDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.getDefault())
@@ -61,9 +76,6 @@ class DoctorDetails : AppCompatActivity() {
         val desiredDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
         // Format the date to the desired format
-        val formattedDate = desiredDateFormat.format(originalDate)
-        tvDocJoinedDetail.text = formattedDate
-
-
+        return desiredDateFormat.format(originalDate)
     }
 }
