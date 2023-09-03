@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
@@ -9,6 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.myapplication.APIServices.Authentication
 import com.example.myapplication.DialogAlerts.ProgressLoader
 import com.example.myapplication.EntityDao.LoginDao
@@ -34,6 +37,8 @@ class SignIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
+        askPermissionForPushNotification()
 
         etEmailSignIn = findViewById(R.id.etEmailSignIn)
         etPassSignIn = findViewById(R.id.etPassSignIn)
@@ -124,6 +129,13 @@ class SignIn : AppCompatActivity() {
             is ValidationResult.Empty ->{
                 etPassSignIn.error =passwordValidation.errorMsg
 
+            }
+        }
+    }
+    private fun askPermissionForPushNotification(){
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.TIRAMISU){
+            if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS),101)
             }
         }
     }
