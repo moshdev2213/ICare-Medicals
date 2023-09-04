@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import com.example.myapplication.Entity.Doctor
 import com.example.myapplication.Entity.Patient
 import java.text.SimpleDateFormat
@@ -29,6 +30,7 @@ class DoctorDetails : AppCompatActivity() {
     private lateinit var tvDocExpDetail:TextView
     private lateinit var tvDocJoinedDetail:TextView
     private lateinit var tvDocDetailText:TextView
+    private lateinit var tvDocChargesDetails:TextView
     private lateinit var cvChannel:CardView
 
     private lateinit var doctor:Doctor
@@ -46,6 +48,7 @@ class DoctorDetails : AppCompatActivity() {
         patObj = bundle?.getSerializable("patObj",Patient::class.java)!!
 
         tvDocExpDetail = findViewById(R.id.tvDocExpDetail)
+        tvDocChargesDetails = findViewById(R.id.tvDocChargesDetails)
         tvDocNameDetail = findViewById(R.id.tvDocNameDetail)
         tvDocJoinedDetail = findViewById(R.id.tvDocJoinedDetail)
         tvDocTimeRangeDetail = findViewById(R.id.tvDocTimeRangeDetail)
@@ -63,7 +66,7 @@ class DoctorDetails : AppCompatActivity() {
         tvDocTimeRangeDetail.text=doctor.timeAvailabe
         tvDocExpDetail.text=doctor.cured.toString()
         tvDocDetailText.text = doctor.description
-
+        tvDocChargesDetails.text = "Rs. "+doctor.amount
         imgBackBtn.setOnClickListener {
             finish()
         }
@@ -77,7 +80,7 @@ class DoctorDetails : AppCompatActivity() {
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
 
-            datePickerDialog=DatePickerDialog(this,
+            datePickerDialog=DatePickerDialog(this,R.style.DialogTheme,
                 { datePicker: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
                     // Handle the selected date
                     selectedDate = "$selectedYear.${selectedMonth + 1}.$selectedDay"
@@ -98,6 +101,10 @@ class DoctorDetails : AppCompatActivity() {
             // Prevent the dialog from closing when touched outside
             datePickerDialog.setCanceledOnTouchOutside(false)
             val negativeButton = datePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+            val positiveButton = datePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+
+            positiveButton.setTextColor(ContextCompat.getColor(this, R.color.bg_btn
+            ))
             negativeButton.visibility = View.GONE
         }
 

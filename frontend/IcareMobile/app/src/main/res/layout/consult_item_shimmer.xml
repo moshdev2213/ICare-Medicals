@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cvMainConsCard"
+    android:id="@+id/cvMainConsCardShimmer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
@@ -18,44 +18,48 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvMainNameDis"
+            android:id="@+id/tvMainNameShimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="Dr. Chris Evans"
-            android:textColor="@color/bg_white"
-            android:textSize="24sp"
+            android:background="@drawable/rounded_text_bg"
+            android:textColor="@color/shimmerOnText"
+            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvSpecDocCard"
+            android:id="@+id/tvSpecDocCardShimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
             android:alpha="0.5"
+            android:background="@drawable/rounded_text_bg"
             android:fontFamily="@font/montserrat"
             android:text="Specialist Eye care"
-            android:textColor="@color/bg_white"
-            android:textSize="16sp"
+            android:textColor="@color/shimmerOnText"
+            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/cardView11"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMainNameDis" />
+            app:layout_constraintTop_toBottomOf="@+id/tvMainNameShimmer" />
 
         <TextView
             android:id="@+id/textView36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_text_bg"
             android:fontFamily="@font/montserrat"
             android:text="Location"
-            android:textColor="@color/bg_white"
+            android:textColor="@color/shimmerOnText"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView12" />
@@ -68,26 +72,28 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
             android:text="ICare Medicals Pvt.Ltd"
-            android:textColor="@color/bg_white"
+            android:background="@drawable/rounded_text_bg"
+            android:textColor="@color/shimmerOnText"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/cardView12"
             app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
         <TextView
-            android:id="@+id/tvSpecDocAddress"
+            android:id="@+id/tvSpecDocAddressShimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
             android:alpha="0.5"
+            android:background="@drawable/rounded_text_bg"
             android:fontFamily="@font/montserrat"
             android:text="Add : ave lane,colombo 11"
-            android:textColor="@color/bg_white"
-            android:textSize="14sp"
+            android:textColor="@color/shimmerOnText"
             app:layout_constraintStart_toEndOf="@+id/cardView12"
             app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
         <TextView
-            android:id="@+id/tvScanDate"
+            android:id="@+id/tvDateShimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -95,7 +101,8 @@
             android:alpha="0.5"
             android:fontFamily="@font/montserrat"
             android:text="2023.09.09"
-            android:textColor="@color/bg_white"
+            android:background="@drawable/rounded_text_bg"
+            android:textColor="@color/shimmerOnText"
             android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView13"
             app:layout_constraintHorizontal_bias="0.5"
@@ -103,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <TextView
-            android:id="@+id/tvScanTime"
+            android:id="@+id/tvTimeShimmer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -111,7 +118,8 @@
             android:alpha="0.5"
             android:fontFamily="@font/montserrat"
             android:text="10:30 AM"
-            android:textColor="@color/bg_white"
+            android:background="@drawable/rounded_text_bg"
+            android:textColor="@color/shimmerOnText"
             android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView14"
             app:layout_constraintHorizontal_bias="0.5"
@@ -128,7 +136,8 @@
             android:alpha="0.5"
             android:fontFamily="@font/montserrat"
             android:text="completed"
-            android:textColor="@color/bg_white"
+            android:background="@drawable/rounded_text_bg"
+            android:textColor="@color/shimmerOnText"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -137,29 +146,19 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView11"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/view"
+            android:alpha="0.5"
+            app:cardBackgroundColor="@color/shimmerOnText"
+            app:cardCornerRadius="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/qrcode" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent" />
         </androidx.cardview.widget.CardView>
 
         <View
@@ -168,23 +167,23 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
-            android:background="@color/bg_white"
+            android:background="@color/shimmerOnText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpecDocCard" />
+            app:layout_constraintTop_toBottomOf="@+id/tvSpecDocCardShimmer" />
 
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
-            app:layout_constraintEnd_toStartOf="@+id/tvScanDate"
+            app:layout_constraintEnd_toStartOf="@+id/tvDateShimmer"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
-            app:srcCompat="@drawable/baseline_calendar_month_24" />
+            app:srcCompat="@color/shimmerOnText" />
 
         <ImageView
             android:id="@+id/imageView13"
@@ -193,11 +192,11 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:alpha="0.5"
-            app:layout_constraintEnd_toStartOf="@+id/tvScanTime"
+            app:layout_constraintEnd_toStartOf="@+id/tvTimeShimmer"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvScanDate"
+            app:layout_constraintStart_toEndOf="@+id/tvDateShimmer"
             app:layout_constraintTop_toBottomOf="@+id/view"
-            app:srcCompat="@drawable/baseline_access_time_filled_24" />
+            app:srcCompat="@color/shimmerOnText" />
 
         <ImageView
             android:id="@+id/imageView14"
@@ -208,9 +207,9 @@
             android:alpha="0.5"
             app:layout_constraintEnd_toStartOf="@+id/textView35"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvScanTime"
+            app:layout_constraintStart_toEndOf="@+id/tvTimeShimmer"
             app:layout_constraintTop_toBottomOf="@+id/view"
-            app:srcCompat="@drawable/baseline_done_all_24" />
+            app:srcCompat="@color/shimmerOnText" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView12"
@@ -220,7 +219,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:alpha="0.5"
-            app:cardBackgroundColor="@color/bg_btn"
+            app:cardBackgroundColor="@color/shimmerOnText"
             app:cardCornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -230,15 +229,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/baseline_location_on_24" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

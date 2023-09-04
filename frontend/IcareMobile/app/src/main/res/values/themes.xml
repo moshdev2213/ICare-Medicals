@@ -16,6 +16,10 @@
         <item name="postSplashScreenTheme">@style/Base.Theme.MyApplication</item>
     </style>
 
+    <style name="DialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="colorAccent">@color/bg_btn</item>
+    </style>
+    
     <style name="roundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>

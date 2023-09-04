@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collation = "appointment")
+@Document(collection = "appointment")
 @JsonInclude(JsonInclude.Include.ALWAYS)
 public class Appointment {
 	@Id
