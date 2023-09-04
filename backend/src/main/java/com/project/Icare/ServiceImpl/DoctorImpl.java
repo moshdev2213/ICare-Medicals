@@ -24,7 +24,6 @@ public class DoctorImpl implements DoctorService {
 	@Override
 	public Doctor createDoctor(Doctor doctor) {
 		doctor.setAdded(formattedDate);
-		doctor.setAmount(2000.00);
 		Doctor doctorRes = doctorRepo.save(doctor);
 		return doctorRes;
 	}

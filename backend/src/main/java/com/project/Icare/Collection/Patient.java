@@ -29,4 +29,5 @@ public class Patient {
 	private int age;
 	private Address address;
 	private Date date;
+	private String tel;
 }

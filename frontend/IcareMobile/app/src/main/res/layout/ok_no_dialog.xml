@@ -2,10 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="350dp"
     android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:layout_marginEnd="24dp"
+    android:layout_gravity="center_horizontal"
     app:cardBackgroundColor="@color/bg_secondary"
     app:cardCornerRadius="10dp">
 
@@ -27,7 +26,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView26" />
 
         <TextView
-            android:id="@+id/textView71"
+            android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -48,41 +47,26 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bgdone" />
+            app:srcCompat="@drawable/imageedit_2_5529100877" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnDialogSuccess"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/validationdone"
+            android:backgroundTint="@color/bg_btn"
             android:fontFamily="@font/montserrat_bold"
             android:text="OK"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/textView71" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/bg_primary"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="CANCEL"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView71" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
