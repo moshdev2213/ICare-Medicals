@@ -83,7 +83,7 @@ class AppointmentActivity : AppCompatActivity() {
                 patObj.email,
                 patObj.firstName,
                 patObj.tel,
-                generateRandom12DigitNumber().toInt(),
+                tvRefDocAppo.text.toString().toInt(),
                 doctor.amount
             )
             createAppointment(appointment)
@@ -132,8 +132,8 @@ class AppointmentActivity : AppCompatActivity() {
         })
     }
     private fun generateRandom12DigitNumber(): Long {
-        val minValue = 1_000_000_000L // Minimum 10-digit number
-        val maxValue = 9_999_999_999L // Maximum 10-digit number
+        val minValue = 1_000_000L // Minimum 10-digit number
+        val maxValue = 9_999_999L // Maximum 10-digit number
 
         return Random.nextLong(minValue, maxValue)
     }

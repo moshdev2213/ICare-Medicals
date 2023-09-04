@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.Icare.Collection.Appointment;
 import com.project.Icare.EmailTemps.EmailTransaction;
+import com.project.Icare.EmailTemps.SMSAppointment;
 import com.project.Icare.EmailTemps.SendLkSms;
 import com.project.Icare.Repo.AppointmentRepo;
 import com.project.Icare.Repo.DoctorRepo;
@@ -48,7 +49,7 @@ public class AppointmentImpl implements AppointmentService {
 					appointment.getVenue()
 			);
 			if (!(appointment.getPatNumber()==null)) {
-				sendLkSms.sendSms(appointment.getPatNumber(),"sd");
+				sendLkSms.sendSms(appointment.getPatNumber(),SMSAppointment.msg(appointmentRes));
 			}
 		} catch (MessagingException e) {
 			e.printStackTrace();
