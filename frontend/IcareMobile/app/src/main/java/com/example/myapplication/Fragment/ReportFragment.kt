@@ -1,60 +1,87 @@
 package com.example.myapplication.Fragment
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.APIServices.AppointmentAPI
+import com.example.myapplication.APIServices.DoctorAPI
+import com.example.myapplication.Adapter.ConsultAdapter
+import com.example.myapplication.Entity.Appointment
+import com.example.myapplication.Entity.Doctor
+import com.example.myapplication.Entity.Patient
 import com.example.myapplication.R
+import com.example.myapplication.RetrofitService.RetrofitService
+import com.facebook.shimmer.ShimmerFrameLayout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReportFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ReportFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var rvreportfrag:RecyclerView
+    private lateinit var adapter: ConsultAdapter
+    private lateinit var shimmerConsultFrag: ShimmerFrameLayout
+    private lateinit var out: Patient
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_report, container, false)
+        var view = inflater.inflate(R.layout.fragment_report, container, false)
+
+        out = arguments?.getSerializable("patientObject", Patient::class.java)!!
+        shimmerConsultFrag = view.findViewById(R.id.shimmerConsultFrag)
+        shimmerConsultFrag.startShimmer()
+        initRecycler(view)
+        return view
+    }
+    private fun initRecycler(view: View){
+        rvreportfrag = view.findViewById(R.id.rvreportfrag)
+        rvreportfrag.layoutManager= LinearLayoutManager(requireContext())
+        adapter = ConsultAdapter {
+                appointment:Appointment ->consultCardClicked(appointment)
+        }
+        rvreportfrag.adapter = adapter
+        fetchData()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ReportFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun fetchData() {
+        val retrofitService= RetrofitService()
+        val getList =retrofitService.getRetrofit().create(AppointmentAPI::class.java)
+
+        val call: Call<List<Appointment>> = getList.getAllAppointments(out.email)
+        call.enqueue(object : Callback<List<Appointment>> {
+            override fun onResponse(call: Call<List<Appointment>>,response: Response<List<Appointment>>) {
+                if(response.isSuccessful){
+                    if (response.body()!=null){
+                        adapter.setList(response.body()!!)
+                        shimmerConsultFrag.stopShimmer()
+                        shimmerConsultFrag.visibility = View.GONE
+                        rvreportfrag.visibility = View.VISIBLE
+                    }
+                }else{
+                    shimmerConsultFrag.stopShimmer()
+                    shimmerConsultFrag.visibility = View.GONE
+                    Toast.makeText(requireContext(),"Invalid response", Toast.LENGTH_SHORT).show()
                 }
             }
+            override fun onFailure(call: Call<List<Appointment>>, t: Throwable) {
+                shimmerConsultFrag.stopShimmer()
+                shimmerConsultFrag.visibility = View.GONE
+                Toast.makeText(requireContext(),"Server Error", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
+
+    private fun consultCardClicked(appointment: Appointment) {
+        Toast.makeText(requireContext(),"Clicked",Toast.LENGTH_SHORT).show()
+    }
+
 }
