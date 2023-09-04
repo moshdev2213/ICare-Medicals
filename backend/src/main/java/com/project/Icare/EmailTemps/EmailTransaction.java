@@ -8,7 +8,7 @@ import jakarta.mail.MessagingException;
 public class EmailTransaction {
 	@Autowired
 	private EmailSenderService emailSenderService;
-	public void sendHtmlEmail(String toMail,String subject,String refNum,String date,String docName,String patName,String charge,String totCharge) throws MessagingException {
+	public void sendHtmlEmail(String toMail,String subject,String refNum,String date,String docName,String patName,String charge,String totCharge,String chanTime,String chanLoc) throws MessagingException {
 		
 		String mailTrans = "<!DOCTYPE html>\r\n"
 				+ "\r\n"
@@ -539,7 +539,7 @@ public class EmailTransaction {
 				+ "                                                                <div\r\n"
 				+ "                                                                    style=\"color:#232323;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:150%;text-align:left;mso-line-height-alt:21px;\">\r\n"
 				+ "                                                                    <p style=\"margin: 0; word-break: break-word;\">\r\n"
-				+ "                                                                        <span>Payment Mode</span>\r\n"
+				+ "                                                                        <span>Channeling Time</span>\r\n"
 				+ "                                                                    </p>\r\n"
 				+ "                                                                </div>\r\n"
 				+ "                                                            </td>\r\n"
@@ -559,7 +559,7 @@ public class EmailTransaction {
 				+ "                                                                <div\r\n"
 				+ "                                                                    style=\"color:#232323;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:150%;text-align:right;mso-line-height-alt:21px;\">\r\n"
 				+ "                                                                    <p style=\"margin: 0; word-break: break-word;\">\r\n"
-				+ "                                                                        <span>On Site</span>\r\n"
+				+ "                                                                        <span>"+chanTime+"</span>\r\n"
 				+ "                                                                    </p>\r\n"
 				+ "                                                                </div>\r\n"
 				+ "                                                            </td>\r\n"
@@ -597,7 +597,7 @@ public class EmailTransaction {
 				+ "                                                                <div\r\n"
 				+ "                                                                    style=\"color:#232323;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;font-weight:400;line-height:150%;text-align:left;mso-line-height-alt:21px;\">\r\n"
 				+ "                                                                    <p style=\"margin: 0; word-break: break-word;\">\r\n"
-				+ "                                                                        <span>Patient Name</span>\r\n"
+				+ "                                                                        <span>Channeling Center</span>\r\n"
 				+ "                                                                    </p>\r\n"
 				+ "                                                                </div>\r\n"
 				+ "                                                            </td>\r\n"
@@ -617,7 +617,7 @@ public class EmailTransaction {
 				+ "                                                                <div\r\n"
 				+ "                                                                    style=\"color:#232323;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:150%;text-align:right;mso-line-height-alt:21px;\">\r\n"
 				+ "                                                                    <p style=\"margin: 0; word-break: break-word;\">\r\n"
-				+ "                                                                        <span>"+patName+"</span>\r\n"
+				+ "                                                                        <span>"+chanLoc+"</span>\r\n"
 				+ "                                                                    </p>\r\n"
 				+ "                                                                </div>\r\n"
 				+ "                                                            </td>\r\n"

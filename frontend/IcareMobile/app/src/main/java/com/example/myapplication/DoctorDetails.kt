@@ -3,7 +3,6 @@ package com.example.myapplication
 import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.icu.text.Transliterator.Position
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.view.View
 import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import com.example.myapplication.Entity.Doctor
@@ -83,7 +81,7 @@ class DoctorDetails : AppCompatActivity() {
                 { datePicker: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
                     // Handle the selected date
                     selectedDate = "$selectedYear.${selectedMonth + 1}.$selectedDay"
-                    val intent = Intent(this,Appointment::class.java)
+                    val intent = Intent(this,AppointmentActivity::class.java)
                     val bundle = Bundle().apply {
                         putSerializable("doctor", doctor)
                         putSerializable("patObj",patObj)
@@ -91,6 +89,7 @@ class DoctorDetails : AppCompatActivity() {
                     }
                     intent.putExtras(bundle)
                     startActivity(intent)
+                    finish()
                 },year,month,day)
 
             // Show the DatePickerDialog

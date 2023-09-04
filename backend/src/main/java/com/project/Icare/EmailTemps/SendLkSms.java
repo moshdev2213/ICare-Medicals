@@ -65,6 +65,6 @@ public class SendLkSms {
 
 		ResponseEntity<String> responseEntity = restTemplate.exchange(URL, HttpMethod.POST, reqEntity, String.class);
 
-		System.out.println(reqEntity.toString() + " " + responseEntity.getBody());
+//		System.out.println(reqEntity.toString() + " " + responseEntity.getBody());
 	}
 }

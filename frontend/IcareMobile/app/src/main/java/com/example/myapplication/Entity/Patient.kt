@@ -12,5 +12,6 @@ data class Patient(
     val bloodGroup:String,
     val age:Int,
     val address: Address,
-    val date: String
+    val date: String,
+    val tel: String
 ):Serializable

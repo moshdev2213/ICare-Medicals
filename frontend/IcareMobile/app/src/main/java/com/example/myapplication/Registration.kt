@@ -1,12 +1,14 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.myapplication.APIServices.Authentication
 import com.example.myapplication.DialogAlerts.ProgressLoader
 import com.example.myapplication.Entity.Address
@@ -32,6 +34,7 @@ class Registration : AppCompatActivity() {
     private var count:Int =0
     private lateinit var progressLoader: ProgressLoader
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -111,7 +114,8 @@ class Registration : AppCompatActivity() {
                     "",
                     ""
                 ),
-                formattedDate
+                formattedDate,
+                ""
             )
         )
         call.enqueue(object : Callback<Patient> {
