@@ -4,7 +4,7 @@
       height="350"
       type="bar"
       :options="chartOptions"
-      :series="series"
+      :series="chartData.series" 
     ></VueApexCharts>
   </div>
 </template>
@@ -12,6 +12,8 @@
 <script>
 
 import VueApexCharts from "vue3-apexcharts";
+
+import axios from "axios"; // Import axios for making HTTP requests
 
 export default {
   components: {
@@ -55,14 +57,17 @@ export default {
         xaxis: {
           type: "category",
           categories: [
-            "16/08",
-            "17/08",
-            "18/08",
-            "19/08",
-            "20/08",
-            "21/08",
-            "22/08",
-            "23/08",
+                      "5/2023",
+          "6/2023",
+          "7/2023",
+          "8/2023",
+          "9/2023",
+          "10/2023",
+          "11/2023",
+          "12/2023",
+
+
+
           ],
           labels: {
             style: { cssClass: "grey--text lighten-2--text fill-color" },
@@ -71,8 +76,8 @@ export default {
         yaxis: {
           show: true,
           min: 0,
-          max: 400,
-          tickAmount: 4,
+          max: 10,
+          tickAmount: 5,
           labels: {
             style: {
               cssClass: "grey--text lighten-2--text fill-color",
@@ -90,7 +95,7 @@ export default {
         },
         responsive: [
           {
-            breakpoint: 600,
+            breakpoint: 100,
             options: {
               plotOptions: {
                 bar: {
@@ -102,17 +107,47 @@ export default {
         ],
       },
 
-      series: [
-        {
-          name: "Earnings this month:",
-          data: [355, 390, 300, 350, 390, 180, 355, 390],
-        },
-        {
-          name: "Expense this month:",
-          data: [280, 250, 325, 215, 250, 310, 280, 250],
-        },
-      ],
+      chartData: {
+      series: [], // Initialize with an empty array
+    },
     };
   },
+
+
+  mounted() {
+    axios
+      .get("http://localhost:8083/patient/registration-data?year=2023&monthStart=5&monthEnd=12", {
+        params: {
+          year: 2023,
+          monthStart: 1,
+          monthEnd: 12,
+        },
+      })
+      .then((response) => {
+  // Extract months and counts
+      const months = Object.keys(response.data);
+      const maleCounts = months.map((month) => response.data[month].maleCount);
+      const femaleCounts = months.map((month) => response.data[month].femaleCount);
+
+      // Define series data for the chart
+      const seriesData = [
+        {
+          name: "Male",
+          data: maleCounts,
+        },
+        {
+          name: "Female",
+          data: femaleCounts,
+        },
+      ];
+
+      // Update the chartData with the formatted data
+      this.chartData.series = seriesData;
+    })
+
+
+  },
+
+
 };
 </script>

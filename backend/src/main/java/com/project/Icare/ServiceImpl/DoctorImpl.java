@@ -1,16 +1,15 @@
 package com.project.Icare.ServiceImpl;
 
+import com.project.Icare.Collection.Doctor;
+import com.project.Icare.Repo.DoctorRepo;
+import com.project.Icare.Service.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.project.Icare.Collection.Doctor;
-import com.project.Icare.Repo.DoctorRepo;
-import com.project.Icare.Service.DoctorService;
 
 @Service
 public class DoctorImpl implements DoctorService {

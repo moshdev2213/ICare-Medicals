@@ -1,9 +1,8 @@
 package com.project.Icare.EmailTemps;
 
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import jakarta.mail.MessagingException;
 @Service
 public class EmailTransaction {
 	@Autowired

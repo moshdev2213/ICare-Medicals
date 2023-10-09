@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://root:NisalSYapa@icaredb.zwd1cmk.mongodb.net/?retryWrites=true&w=majority
+      database: pmanage

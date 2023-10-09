@@ -8,18 +8,27 @@ import StaffManagement from './components/StaffManagement.vue'
 import DoctorManagement from './components/DoctorManagement.vue'
 import PatientManagement from './components/PatientManagement.vue'
 import Login from './components/Login.vue'
+import Register from './components/Register.vue'
+
+// export default {
+//   name: 'App',
+//   components: {
+//     PatientManagement
+//   }
+// }
 
 </script>
 
 <template>
   <Headers/>
   <SideBar/>
-  <OverView/>
+  <!-- <OverView/> -->
   <!-- <Profile/> -->
   <!-- <StaffManagement/> -->
   <!-- <PatientManagement/> -->
   <!-- <DoctorManagement/> -->
   <!-- <Login/> -->
+  <!-- <Register/> -->
   <RouterView />
 </template>
 

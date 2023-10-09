@@ -1,15 +1,13 @@
 package com.project.Icare.ServiceImpl;
 
-import java.util.Date;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.project.Icare.Collection.Patient;
 import com.project.Icare.CollectionDTO.LoginDao;
 import com.project.Icare.Repo.Authrepo;
 import com.project.Icare.Service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AuthImpl implements AuthService{
