@@ -70,6 +70,10 @@
       </div>
     </div>
   </div>
+
+
+
+  
 </template>
 
 
@@ -96,15 +100,20 @@ export default {
       date: '',
       tel: ''
       },
+
     };
   },
   methods: {
     submitForm() {
+
+    
       // Send a POST request to your Spring Boot API
       axios
         .post('http://localhost:8083/patient', this.patient)
         .then((response) => {
           console.log('User data sent successfully:', response.data);
+          
+            
           // Optionally, you can reset the form fields here
           this.patient.firstName = '';
           this.patient.lastName = '';
@@ -118,11 +127,17 @@ export default {
           this.patient.tel = '';
           this.patient.password = '';
           
+          
         })
         .catch((error) => {
           console.error('Error sending user data:', error);
         });
+      
     },
+
+
+
+    
   },
 };
 </script>

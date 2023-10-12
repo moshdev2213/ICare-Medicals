@@ -264,10 +264,10 @@
 														<td class="font-weight-bold"><span
 														class="my-2 text-xs">{{ patien.email}}</span></td>
 													    <td class="font-weight-bold">
-														<span class="my-2 text-xs">
-														Street: {{ patien.address.street }}<br>
-														District: {{ patien.address.district }}<br>
-														Province: {{ patien.address.province }}
+															<span class="my-2 text-xs">
+														Street: {{ patien.address ? patien.address.street : 'N/A' }}<br>
+														District: {{ patien.address ? patien.address.district : 'N/A' }}<br>
+														Province: {{ patien.address ? patien.address.province : 'N/A' }}
 													</span>
 													</td>
 													<td class="text-xs font-weight-bold"><span

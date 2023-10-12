@@ -12,7 +12,7 @@
                 <span className="hide-menu">Home</span>
               </li>
               <li className="sidebar-item">
-                <router-link to="/" class="sidebar-item" aria-expanded="false">
+                <router-link to="/Overview" class="sidebar-item" aria-expanded="false">
                 <a className="sidebar-link">
                   <span>
                     <i className="ti ti-layout-dashboard"></i>
