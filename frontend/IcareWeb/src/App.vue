@@ -20,8 +20,10 @@ import Register from './components/Register.vue'
 </script>
 
 <template>
-  <Headers/>
-  <SideBar/>
+  <!-- <Headers/>
+  <SideBar/> -->
+    <Headers v-if="$route.path !== '/' && $route.path !== '/login' && $route.path !== '/registre'" />
+    <SideBar v-if="$route.path !== '/' && $route.path !== '/login' && $route.path !== '/registre'" />
   <!-- <OverView/> -->
   <!-- <Profile/> -->
   <!-- <StaffManagement/> -->

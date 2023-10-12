@@ -48,7 +48,7 @@ public class DoctorController {
         doctorService.deleteDoctor(_id);
     }
 
-    @RequestMapping("/doctor/{id}")
+    @RequestMapping("/{id}")
     private Doctor getDoctor(@PathVariable(name = "id")String doctorid)
     {
         return doctorService.getDoctorByID(doctorid);

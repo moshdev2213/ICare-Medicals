@@ -12,18 +12,18 @@
                     <img src="../assets/images/logos/logo.jpg" width="180" alt="">
                   </a>
                   <p class="text-center">Create an Account</p>
-                  <form>
+                  <form @submit.prevent="submitForm">
                     <div class="mb-3">
                       <label for="exampleInputUsername" class="form-label">Username</label>
-                      <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter your username">
+                      <input type="text" class="form-control" v-model="admin.uname" id="exampleInputUsername" placeholder="Enter your username">
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter your email">
+                      <input type="email" class="form-control" v-model="admin.email" id="exampleInputEmail" placeholder="Enter your email">
                     </div>
                     <div class="mb-4">
                       <label for="exampleInputPassword" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword"
+                      <input type="password" class="form-control" v-model="admin.password" id="exampleInputPassword"
                         placeholder="Enter your password">
                     </div>
                     <div class="mb-4">
@@ -31,10 +31,10 @@
                       <input type="password" class="form-control" id="exampleInputConfirmPassword"
                         placeholder="Confirm your password">
                     </div>
-                    <a href="./index.html" class="btn btn-primary w-100 py-3 fs-4 mb-4 rounded-2">Register</a>
+                    <button type="submit" class="btn btn-primary w-100 py-3 fs-4 mb-4 rounded-2">Register</button>
                     <div class="d-flex align-items-center justify-content-center">
                       <p class="fs-4 mb-0 fw-bold">Already have an account?</p>
-                      <a class="text-primary fw-bold ms-2" href="./authentication-login.html">Sign In</a>
+                      <router-link to="/" class="text-primary fw-bold ms-2">Sign In</router-link>
                     </div>
                   </form>
                 </div>
@@ -45,4 +45,47 @@
       </div>
     </div>
   </template>
+<script>
   
+import axios from 'axios';
+export default {
+  data() {
+    return {
+      admin: {
+        uname: '',
+        firstname: '',
+        lastname: '',
+        role: '',
+        password: '',
+        email: ''
+},
+
+    };
+  },
+  methods: {
+    submitForm() {
+      // Send a POST request to your Spring Boot API
+      axios
+        .post('http://localhost:8083/admin', this.admin)
+        .then((response) => {
+          console.log('admin data sent successfully:', response.data);
+          // Optionally, you can reset the form fields here
+          this.admin.uname='';
+          this.admin.firstname='';
+          this.admin.lastname='';
+          this.admin.role='';
+          this.admin.password='';
+          this.admin.email = '';
+
+
+          
+        })
+        .catch((error) => {
+          console.error('Error sending admin data:', error);
+        });
+
+        this.$router.push('/');
+    },
+  },
+};
+</script> 

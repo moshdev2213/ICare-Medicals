@@ -79,12 +79,21 @@ export default {
   data() {
     return {
       patient: {
-        patientId: '',
-        patientName: '',
-        address: '',
-        diseaseType: '',
-        age: '',
-        phoneNo: '',
+      email: '',
+      password: '',
+      firstName: '',
+      lastName: '',
+      uname: '',
+      gender: '',
+      bloodGroup: '',
+      age: '',
+      address: {
+          "street": '',
+          "district": '',
+          "province": ''
+      },
+      date: '',
+      tel: ''
       },
     };
   },
