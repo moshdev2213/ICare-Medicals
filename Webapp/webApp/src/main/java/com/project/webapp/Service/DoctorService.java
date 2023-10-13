@@ -6,6 +6,8 @@ import com.project.webapp.Repo.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DoctorService {
 
@@ -55,4 +57,9 @@ public class DoctorService {
         }
         return null;
     }
+
+    public List<Doctor> findAllDoctors() {
+        return repo.findAll();
+    }
+
 }

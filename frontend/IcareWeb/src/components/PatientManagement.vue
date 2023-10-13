@@ -420,6 +420,7 @@ export default {
 
   created() {
     this.getPatients();
+	setInterval(this.getPatients, 1000); 
   },
 };
 </script>

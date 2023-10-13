@@ -1,10 +1,16 @@
 package com.project.webapp.Controller;
 
 
+import com.project.webapp.DTO.DoctorSpecializationCountDTO;
 import com.project.webapp.Entity.Doctor;
 import com.project.webapp.Service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin("http://localhost:5173")
@@ -58,6 +64,24 @@ public class DoctorController {
 
         return doctorService.updateDoctor(doctor);
     }
+
+    @GetMapping("/api/countDoctorsBySpecialization")
+    public List<DoctorSpecializationCountDTO> countDoctorsBySpecialization() {
+        List<Doctor> doctors = doctorService.findAllDoctors(); // Fetch all doctors
+        List<DoctorSpecializationCountDTO> specializationCounts = new ArrayList<>();
+
+        // Group doctors by specialization and count them
+        Map<String, Long> counts = doctors.stream()
+                .collect(Collectors.groupingBy(Doctor::getSpecializing, Collectors.counting()));
+
+        // Convert counts to DTOs
+        counts.forEach((specialization, count) -> {
+            specializationCounts.add(new DoctorSpecializationCountDTO(specialization, count));
+        });
+
+        return specializationCounts;
+    }
+
 
 
 }

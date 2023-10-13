@@ -417,6 +417,7 @@ export default {
 
   created() {
     this.getDoctors();
+	setInterval(this.getDoctors, 1000); 
   },
 };
 </script>

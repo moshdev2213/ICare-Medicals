@@ -1,5 +1,17 @@
+<template>
+  <div class="example">
+    <VueApexCharts
+      height="350"
+      type="bar"
+      :options="chartOptions"
+      :series="chartData.series"
+    ></VueApexCharts>
+  </div>
+</template>
+
 <script>
 import VueApexCharts from "vue3-apexcharts";
+import axios from "axios"; // Import axios for making HTTP requests
 
 export default {
   components: {
@@ -9,57 +21,103 @@ export default {
     return {
       chartOptions: {
         chart: {
-          id: "sparkline3",
-          sparkline: {
-            enabled: true,
-          },
-          group: "sparklines",
-          fontFamily: "Plus Jakarta Sans', sans-serif",
+          offsetX: -15,
+          toolbar: { show: true },
           foreColor: "#adb0bb",
+          fontFamily: "inherit",
+          sparkline: { enabled: false },
         },
         stroke: {
-          curve: "smooth",
+          show: true,
           width: 2,
+          colors: ["transparent"],
         },
-        fill: {
-          colors: ["#f3feff"],
-          type: "solid",
-          opacity: 0.05,
+        colors: ["#5D87FF", "#49BEFF"],
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: "25%",
+            borderRadius: [6],
+            borderRadiusApplication: "end",
+            borderRadiusWhenStacked: "all",
+          },
         },
-
         markers: { size: 0 },
-
-        tooltip: {
-          theme: "dark",
-          fixed: {
-            enabled: true,
-            position: "right",
-          },
-          x: {
-            show: false,
+        dataLabels: {
+          enabled: false,
+        },
+        legend: {
+          show: false,
+        },
+        xaxis: {
+          categories: [
+            "Cardiology",
+            "eye specialist",
+            "therapist"
+          ], // Initialize with an empty array
+          labels: {
+            style: { cssClass: "grey--text lighten-2--text fill-color" },
           },
         },
+        yaxis: {
+          show: true,
+          min: 0,
+          max:10,
+          tickAmount: 5,
+          labels: {
+            style: {
+              cssClass: "grey--text lighten-2--text fill-color",
+            },
+          },
+        },
+        grid: {
+          borderColor: "rgba(0,0,0,0.1)",
+          strokeDashArray: 3,
+          xaxis: {
+            lines: {
+              show: false,
+            },
+          },
+        },
+        responsive: [
+          {
+            breakpoint: 100,
+            options: {
+              plotOptions: {
+                bar: {
+                  borderRadius: 3,
+                },
+              },
+            },
+          },
+        ],
       },
-
-      series: [
-        {
-          name: "Earnings",
-          color: "#49BEFF",
-          data: [25, 66, 20, 40, 12, 58, 20],
-        },
-      ],
+      chartData: {
+        series: [],
+      },
     };
+  },
+  mounted() {
+    axios
+      .get("http://localhost:8083/api/v1/doctor/api/countDoctorsBySpecialization")
+      .then((response) => {
+        const data = response.data;
+
+        // Extract data for the chart
+        const specializations = data.map((entry) => entry.specialization);
+        const counts = data.map((entry) => entry.count);
+
+        // Update the chart data
+        this.chartData.series = [
+          {
+            name: "Doctor Count",
+            data: counts,
+          },
+        ];
+
+        // Update x-axis labels with specializations
+        this.chartOptions.xaxis.categories = specializations;
+      });
   },
 };
 </script>
-
-<template>
-  <div class="example">
-    <VueApexCharts
-      height="100"
-      type="area"
-      :options="chartOptions"
-      :series="series"
-    ></VueApexCharts>
-  </div>
-</template>

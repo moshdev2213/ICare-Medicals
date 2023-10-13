@@ -67,28 +67,29 @@ public class patientServiceImpl implements patientService {
 
     @Override
     public Map<String, RegistrationDataDto> getRegistrationData(int year, int monthStart, int monthEnd) {
-        Map<String, RegistrationDataDto> registrationDataMap = new HashMap<>();
+        Map<String, RegistrationDataDto> registrationDataMap = new LinkedHashMap<>(); // Use LinkedHashMap to maintain insertion order
 
         for (int month = monthStart; month <= monthEnd; month++) {
             Date startDate = getStartDate(year, month);
             Date endDate = getEndDate(year, month);
 
-            //put to a list
+            // put to a list
             List<Patient> malePatients = repository.findPatientsByGenderAndDate("male", startDate, endDate);
             List<Patient> femalePatients = repository.findPatientsByGenderAndDate("female", startDate, endDate);
 
-            //count
+            // count
             int maleCount = malePatients.size();
             int femaleCount = femalePatients.size();
 
-            //create new RegistrationDataDto and add counts to it
+            // create new RegistrationDataDto and add counts to it
             RegistrationDataDto dataDto = new RegistrationDataDto(maleCount, femaleCount);
-            //put that object to map
+            // put that object to map
             registrationDataMap.put(getMonthYearLabel(year, month), dataDto);
         }
 
         return registrationDataMap;
     }
+
 
 //    @Override
 //    public List<YearlyPatientCount> getYearlyPatientCount() {
