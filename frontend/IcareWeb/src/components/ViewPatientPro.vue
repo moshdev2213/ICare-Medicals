@@ -9,11 +9,11 @@
                  <h3>Patient Profile</h3>
                 <div class="mb-3">
                   <label for="inputEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" v-model="patient.email" placeholder="Email" />
+                  <input type="email" class="form-control" id="inputEmail" v-model="patient.email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                 </div>
                 <div class="mb-3">
                   <label for="inputPassword" class="form-label">Password</label>
-                  <input type="password" class="form-control" v-model="patient.password" id="inputPassword" placeholder="Password" />
+                  <input type="password" class="form-control" v-model="patient.password" id="inputPassword" placeholder="Password" required/>
                 </div>
                 <div class="mb-3">
                   <label for="inputFirstName" class="form-label">First Name</label>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="inputUsername" class="form-label">Username</label>
-                  <input type="text" class="form-control" v-model="patient.uname" id="inputUsername" placeholder="Username" />
+                  <input type="text" class="form-control" v-model="patient.uname" id="inputUsername" placeholder="Username" required/>
                 </div>
                 <div class="mb-3">
                   <label for="inputGender" class="form-label">Gender</label>
@@ -33,29 +33,29 @@
                 </div>
                 <div class="mb-3">
                   <label for="inputBloodGroup" class="form-label">Blood Group</label>
-                  <input type="text" class="form-control" v-model="patient.bloodGroup" id="inputBloodGroup" placeholder="Blood Group" />
+                  <input type="text" class="form-control" v-model="patient.bloodGroup" id="inputBloodGroup" placeholder="Blood Group" required/>
                 </div>
                 <div class="mb-3">
                   <label for="inputAge" class="form-label">Age</label>
-                  <input type="number" class="form-control" v-model="patient.age" id="inputAge" placeholder="Age" />
+                  <input type="number" class="form-control" v-model="patient.age" id="inputAge" placeholder="Age" required />
                 </div>
                 <div class="mb-3">
                   <label for="inputStreet" class="form-label">Street</label>
-                  <input type="text" class="form-control" v-model="patient.address.street" id="inputStreet" placeholder="Street" />
+                  <input type="text" class="form-control" v-model="patient.address.street" id="inputStreet" placeholder="Street" required/>
                 </div>
                 <div class="mb-3">
                   <label for="inputDistrict" class="form-label">District</label>
-                  <input type="text" class="form-control" v-model="patient.address.district" id="inputDistrict" placeholder="District" />
+                  <input type="text" class="form-control" v-model="patient.address.district" id="inputDistrict" placeholder="District" required/>
                 </div>
                 <div class="mb-3">
                   <label for="inputProvince" class="form-label">Province</label>
-                  <input type="text" class="form-control" v-model="patient.address.province" id="inputProvince" placeholder="Province" />
+                  <input type="text" class="form-control" v-model="patient.address.province" id="inputProvince" placeholder="Province" required/>
                 </div>
             
          
                 <div class="mb-3">
                   <label for="inputTelephone" class="form-label">Telephone</label>
-                  <input type="text" class="form-control" v-model="patient.tel" id="inputTelephone" placeholder="Telephone" />
+                  <input type="text" class="form-control" v-model="patient.tel" id="inputTelephone" placeholder="Telephone" required/>
                 </div>
   <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Update</button>
   <button type="button" @click="deletePatient" class="btn btn-primary">Delete</button>
