@@ -184,6 +184,7 @@ export default {
         this.isValidVenue &&
         this.isValidAdded &&
         this.isValidEdited;
+        Swal.fire('Data Updated!')
     },
     isValidEmailFormat(email) {
       // Add your email validation logic here (e.g., regex)
