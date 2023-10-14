@@ -1,9 +1,8 @@
 package com.project.Icare.ServiceImpl;
 
-import java.net.URL;
-
-
-
+import com.project.Icare.CollectionDTO.CustomVisionDTO;
+import com.project.Icare.Exception.ImageException;
+import com.project.Icare.Service.CustomVisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,10 +14,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.project.Icare.CollectionDTO.CustomVisionDTO;
-import com.project.Icare.Exception.ImageException;
-import com.project.Icare.Service.CustomVisionService;
 @Service
 public class CustomVisionImpl implements CustomVisionService {
 	private static final String URL = "https://icare-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/311714ad-d62f-4880-aad5-16407c6859ab/classify/iterations/ICare/image";

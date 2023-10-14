@@ -1,9 +1,9 @@
 package com.project.Icare.Service;
 
-import java.util.Optional;
-
 import com.project.Icare.Collection.Patient;
 import com.project.Icare.CollectionDTO.LoginDao;
+
+import java.util.Optional;
 
 public interface AuthService {
 	Patient createPatient(Patient patient);
