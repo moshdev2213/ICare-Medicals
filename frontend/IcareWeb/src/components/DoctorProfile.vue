@@ -84,6 +84,8 @@
   
 <script>
 import axios from 'axios';
+import Swal from 'sweetalert2'
+
 
 export default {
   data() {
@@ -119,9 +121,14 @@ export default {
   },
   methods: {
     submitForm() {
+
+      
       this.validateForm();
 
       if (this.isFormValid) {
+
+       
+
         // Send a POST request to your Spring Boot API
         axios
           .post('http://localhost:8083/api/v1/doctor/save', this.doctor)
@@ -141,6 +148,9 @@ export default {
             this.doctor.venue = '';
             this.doctor.added = '';
             this.doctor.edited = '';
+            Swal.fire('Data Inserted!')
+
+           
           })
           .catch((error) => {
             console.error('Error sending doctor data:', error);

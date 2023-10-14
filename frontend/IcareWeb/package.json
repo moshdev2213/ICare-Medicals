@@ -14,10 +14,12 @@
     "datatables.net-responsive": "^2.5.0",
     "datatables.net-select": "^1.7.0",
     "datatables.net-vue3": "^2.1.2",
+    "sweetalert2": "^11.7.32",
     "vue": "^3.3.4",
     "vue-bootstrap4-table": "^1.1.11",
     "vue-native-websocket": "^2.0.15",
     "vue-router": "^4.2.4",
+    "vue-sweetalert2": "^5.0.5",
     "vue3-apexcharts": "^1.4.4",
     "xlsx": "^0.18.5"
   },
