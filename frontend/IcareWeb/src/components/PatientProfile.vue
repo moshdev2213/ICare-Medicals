@@ -92,6 +92,7 @@
 
 <script>
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 export default {
   data() {
@@ -134,6 +135,7 @@ export default {
       this.validateForm();
 
       if (this.isFormValid) {
+
         // Send a POST request to your Spring Boot API
         axios
           .post('http://localhost:8083/patient', this.patient)
@@ -154,6 +156,7 @@ export default {
             this.patient.address.province = '';
             this.patient.date = '';
             this.patient.tel = '';
+            Swal.fire('Data Inserted!')
           })
           .catch((error) => {
             console.error('Error sending user data:', error);

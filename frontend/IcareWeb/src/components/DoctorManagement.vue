@@ -363,6 +363,7 @@
 
 import axios from 'axios';
 import DoctorService from '../services/DoctorService';
+import Swal from 'sweetalert2'
 
 export default {
   name: 'Doctorlist',
@@ -382,8 +383,18 @@ export default {
     },
 
     deleteDoctors(docid) {
-      // Send a DELETE request to delete the patient using the same PatientService
-      DoctorService.deleteDoctor(docid)
+
+		Swal.fire({
+		title: 'Are you sure?',
+		text: "You won't be able to revert this!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+		if (result.isConfirmed) {
+			DoctorService.deleteDoctor(docid)
         .then((response) => {
           // Handle success (e.g., show a success message)
           console.log('Doctor deleted successfully:', response.data);
@@ -398,6 +409,16 @@ export default {
           // Handle errors (e.g., show an error message)
           console.error('Error deleting patient:', error);
         });
+			Swal.fire(
+			'Deleted!',
+			'Your file has been deleted.',
+			'success'
+			)
+		}
+		})
+
+      // Send a DELETE request to delete the patient using the same PatientService
+      
     },
 
     exportToCSV() {
