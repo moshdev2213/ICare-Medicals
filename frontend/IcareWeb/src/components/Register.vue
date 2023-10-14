@@ -18,10 +18,10 @@
               <div class="card-body">
                 <a
                   href="./index.html"
-                  class="text-nowrap logo-img text-center d-block py-3 w-100"
+                  class="text-nowrap logo-img text-center d-block pb-3 pt-0 w-100"
                 >
                   <img
-                    src="../assets/images/logos/logo.jpg"
+                    src="../assets/images/logos/logo.png"
                     width="180"
                     alt=""
                   />
