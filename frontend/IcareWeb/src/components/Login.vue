@@ -46,10 +46,12 @@ import axios from 'axios';
 export default {
   data() {
     return {
-     admin: {
-      email: '',
-      password: '',
-      }
+      admin: {
+        email: '',
+        password: '',
+      },
+      errorMessage: '', // Define errorMessage here
+    
     };
   },
   methods: {
