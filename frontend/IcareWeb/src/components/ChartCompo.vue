@@ -116,7 +116,7 @@ export default {
 
   mounted() {
     axios
-      .get("http://localhost:8083/patient/registration-data?year=2023&monthStart=5&monthEnd=12", {
+      .get("http://localhost:8090/patient/registration-data?year=2023&monthStart=5&monthEnd=12", {
         params: {
           year: 2023,
           monthStart: 1,

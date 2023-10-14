@@ -3,7 +3,7 @@ package com.project.webapp.Controller;
 
 import com.project.webapp.DTO.DoctorSpecializationCountDTO;
 import com.project.webapp.Entity.Doctor;
-import com.project.webapp.Service.DoctorService;
+import com.project.webapp.Service.DoctorServiceWithImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class DoctorController {
 
     @Autowired
-    private DoctorService doctorService;
+    private DoctorServiceWithImpl doctorService;
 
     //post/save
     @PostMapping(value = "/save")

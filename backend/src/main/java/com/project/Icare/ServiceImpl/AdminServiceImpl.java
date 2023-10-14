@@ -1,12 +1,12 @@
-package com.project.webapp.ServiceImpl;
+package com.project.Icare.ServiceImpl;
 
-import com.project.webapp.DTO.AloginDto;
-
-import com.project.webapp.Entity.Admin;
-import com.project.webapp.Repo.AdminRepo;
-import com.project.webapp.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.project.Icare.Collection.Admin;
+import com.project.Icare.CollectionDTO.AloginDto;
+import com.project.Icare.Repo.AdminRepo;
+import com.project.Icare.Service.AdminService;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -33,4 +33,6 @@ public class AdminServiceImpl implements AdminService {
         Optional<AloginDto> resLoginOptional = adminRepo.findByEmailAndPassword(email, password);
         return resLoginOptional;
     }
+
+	
 }

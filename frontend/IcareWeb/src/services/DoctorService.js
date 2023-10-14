@@ -1,7 +1,7 @@
 import axios from "axios";
-const DOCTOR_API_URL_BASE = "http://localhost:8083/api/v1/doctor";
-const DOCTOR_API_URL = "http://localhost:8083/api/v1/doctor/getAll";
-const DOCTOR_API_URL_DEL="http://localhost:8083/api/v1/doctor/delete";
+const DOCTOR_API_URL_BASE = "http://localhost:8090/api/doctor";
+const DOCTOR_API_URL = "http://localhost:8090/api/doctor/getAll";
+const DOCTOR_API_URL_DEL="http://localhost:8090/api/doctor/delete";
 
 
 class DoctorService {

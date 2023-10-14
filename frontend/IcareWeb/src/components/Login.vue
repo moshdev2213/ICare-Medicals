@@ -57,7 +57,7 @@ export default {
   methods: {
     loginAdmin() {
       axios
-        .post('http://localhost:8083/admin/login/admin', this.admin)
+        .post('http://localhost:8090/admin/login/admin', this.admin)
         .then((response) => {
           // Handle successful admin login
           // You can redirect the admin or perform other actions here

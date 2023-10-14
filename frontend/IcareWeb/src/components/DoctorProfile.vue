@@ -131,7 +131,7 @@ export default {
 
         // Send a POST request to your Spring Boot API
         axios
-          .post('http://localhost:8083/api/v1/doctor/save', this.doctor)
+          .post('http://localhost:8090/api/v1/doctor/save', this.doctor)
           .then((response) => {
             console.log('Doctor data sent successfully:', response.data);
 
