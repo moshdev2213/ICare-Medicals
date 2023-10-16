@@ -1,13 +1,14 @@
-package com.project.webapp.Repo;
-
-import com.project.webapp.DTO.YearlyPatientCount;
-import com.project.webapp.Entity.Patient;
-import org.springframework.data.mongodb.repository.Aggregation;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
+package com.project.Icare.Repo;
 
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
+import com.project.Icare.Collection.Patient;
+import com.project.Icare.CollectionDTO.YearlyPatientCount;
+
 
 public interface patientRepository extends MongoRepository<Patient,String> {
 

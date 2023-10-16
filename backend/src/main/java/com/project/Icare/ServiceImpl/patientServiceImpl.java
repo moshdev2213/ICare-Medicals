@@ -1,13 +1,12 @@
-package com.project.webapp.ServiceImpl;
+package com.project.Icare.ServiceImpl;
 
-import com.project.webapp.DTO.RegistrationDataDto;
-import com.project.webapp.DTO.YearlyPatientCount;
-import com.project.webapp.Entity.Patient;
-
-import com.project.webapp.Repo.patientRepository;
-import com.project.webapp.Service.patientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.project.Icare.Collection.Patient;
+import com.project.Icare.CollectionDTO.RegistrationDataDto;
+import com.project.Icare.Repo.patientRepository;
+import com.project.Icare.Service.patientService;
 
 import java.util.*;
 
@@ -128,8 +127,5 @@ public class patientServiceImpl implements patientService {
         String monthStr = String.format("%02d", month); // Zero-padding for single-digit months
         return monthStr + "/" + year;
     }
-
-
-
 
 }

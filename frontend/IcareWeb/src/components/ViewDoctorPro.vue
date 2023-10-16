@@ -117,10 +117,12 @@ export default {
         .then((response) => {
           // Handle success (e.g., show a success message)
           console.log('Doctor data updated successfully:', response.data);
+          Swal.fire("Data updated!");
         })
         .catch((error) => {
           // Handle errors (e.g., show an error message)
           console.error('Error updating doctor data:', error);
+          Swal.fire("Error Action!");
         });
     },
 
@@ -131,10 +133,12 @@ export default {
         .then((response) => {
           // Handle success (e.g., show a success message)
           console.log('doctor deleted successfully:', response.data);
+          Swal.fire("Data Deleted!");
         })
         .catch((error) => {
           // Handle errors (e.g., show an error message)
           console.error('Error deleting doctor:', error);
+          Swal.fire("Error Action!");
         });
     },
 

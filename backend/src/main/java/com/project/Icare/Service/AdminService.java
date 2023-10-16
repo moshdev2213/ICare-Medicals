@@ -1,10 +1,10 @@
-package com.project.webapp.Service;
+package com.project.Icare.Service;
 
-import com.project.webapp.DTO.AloginDto;
-import com.project.webapp.Entity.Admin;
-import com.project.webapp.Entity.Patient;
 
 import java.util.Optional;
+
+import com.project.Icare.Collection.Admin;
+import com.project.Icare.CollectionDTO.AloginDto;
 
 public interface AdminService {
 

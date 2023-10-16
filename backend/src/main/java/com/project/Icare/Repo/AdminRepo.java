@@ -1,8 +1,9 @@
-package com.project.webapp.Repo;
+package com.project.Icare.Repo;
 
-import com.project.webapp.DTO.AloginDto;
-import com.project.webapp.Entity.Admin;
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.project.Icare.Collection.Admin;
+import com.project.Icare.CollectionDTO.AloginDto;
 
 import java.util.Optional;
 

@@ -99,7 +99,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:8083/api/v1/doctor/api/countDoctorsBySpecialization")
+      .get("http://localhost:8090/api/doctor/api/countDoctorsBySpecialization")
       .then((response) => {
         const data = response.data;
 

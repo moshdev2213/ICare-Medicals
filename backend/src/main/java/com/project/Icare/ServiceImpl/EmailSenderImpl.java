@@ -1,10 +1,12 @@
-package com.project.webapp.ServiceImpl;
+package com.project.Icare.ServiceImpl;
 
-import com.project.webapp.Service.EmailSender;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import com.project.Icare.Service.EmailSender;
 
 @Service
 public class EmailSenderImpl implements EmailSender {

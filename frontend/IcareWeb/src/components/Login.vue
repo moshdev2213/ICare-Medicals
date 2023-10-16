@@ -8,10 +8,10 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="../assets/images/logos/logo.jpg" width="180" alt="">
+                <a href="./index.html" class="text-nowrap logo-img text-center d-block pb-3 pt-0 w-100">
+                  <img src="../assets/images/logos/logo.png" width="180" alt="">
                 </a>
-                <p class="text-center">Your Social Campaigns</p>
+                <p class="text-center">Your Eye Care Partner</p>
                 <form @submit.prevent="loginAdmin">
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">E-mail</label>
@@ -26,7 +26,7 @@
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-3 fs-4 mb-4 rounded-2">Login</button>
                   <div class="d-flex align-items-center justify-content-center">
-    <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
+    <p class="fs-4 mb-0 fw-bold">New to ICare?</p>
     <router-link to="/registre" class="text-primary fw-bold ms-2">Create an account</router-link>
   </div>
                 </form>
@@ -57,7 +57,7 @@ export default {
   methods: {
     loginAdmin() {
       axios
-        .post('http://localhost:8083/admin/login/admin', this.admin)
+        .post('http://localhost:8090/admin/login/admin', this.admin)
         .then((response) => {
           // Handle successful admin login
           // You can redirect the admin or perform other actions here

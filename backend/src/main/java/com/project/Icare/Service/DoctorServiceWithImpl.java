@@ -1,15 +1,16 @@
-package com.project.webapp.Service;
+package com.project.Icare.Service;
 
 
-import com.project.webapp.Entity.Doctor;
-import com.project.webapp.Repo.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.project.Icare.Collection.Doctor;
+import com.project.Icare.Repo.DoctorRepo;
 
 import java.util.List;
 
 @Service
-public class DoctorService {
+public class DoctorServiceWithImpl {
 
     @Autowired
     private DoctorRepo repo;

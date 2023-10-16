@@ -1,14 +1,15 @@
-package com.project.webapp.Controller;
+package com.project.Icare.Controller;
 
-import com.project.webapp.DTO.RegistrationDataDto;
-import com.project.webapp.Entity.Patient;
 //import com.project.webapp.Entity.patient;
-import com.project.webapp.Service.EmailSender;
-import com.project.webapp.Service.patientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.project.Icare.Collection.Patient;
+import com.project.Icare.CollectionDTO.RegistrationDataDto;
+import com.project.Icare.Service.EmailSender;
+import com.project.Icare.Service.patientService;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.project.webapp.Entity;
+package com.project.Icare.Collection;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.project.webapp.Service;
+package com.project.Icare.Service;
 
 public interface EmailSender {
 

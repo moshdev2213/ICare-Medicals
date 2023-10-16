@@ -1,13 +1,14 @@
-package com.project.webapp.Controller;
+package com.project.Icare.Controller;
 
-import com.project.webapp.DTO.AloginDto;
-import com.project.webapp.Entity.Admin;
-import com.project.webapp.Exception.ResourceNotFound;
-import com.project.webapp.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.project.Icare.Collection.Admin;
+import com.project.Icare.CollectionDTO.AloginDto;
+import com.project.Icare.Exception.ResourceNotFound;
+import com.project.Icare.Service.AdminService;
 
 @RestController
 @RequestMapping("/admin")
