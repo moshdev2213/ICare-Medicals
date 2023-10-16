@@ -184,9 +184,7 @@
                   </p>
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                  Update Details
-                </button>
+                <button type="submit" class="btn btn-primary">Addd</button>
               </form>
             </div>
           </div>

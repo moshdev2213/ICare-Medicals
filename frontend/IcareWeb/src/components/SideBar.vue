@@ -62,7 +62,7 @@
             <span className="hide-menu">AUTH</span>
           </li>
           <li className="sidebar-item">
-            <router-link
+            <!-- <router-link
               to="/Profile"
               class="sidebar-link"
               aria-expanded="false"
@@ -71,7 +71,7 @@
                 <i class="ti ti-user"></i>
               </span>
               <span class="hide-menu">My Profile</span>
-            </router-link>
+            </router-link> -->
 
             <router-link to="/login" class="sidebar-link" aria-expanded="false">
               <span>
