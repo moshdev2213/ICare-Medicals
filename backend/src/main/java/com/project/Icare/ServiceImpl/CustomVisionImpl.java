@@ -16,8 +16,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 @Service
 public class CustomVisionImpl implements CustomVisionService {
-	private static final String URL = "https://icare-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/311714ad-d62f-4880-aad5-16407c6859ab/classify/iterations/ICare/image";
-	private static final String PREDKEY = "5db61c6ea94645959688878437a3720f";
+	private static final String URL = "YOUR-CUSTOM-VISION-PROJECT-URL";
+	private static final String PREDKEY = "YOUR-CUSTOM-VISION-PRED-KEY";
 	
 	@Autowired
 	private RestTemplate restTemplate;
