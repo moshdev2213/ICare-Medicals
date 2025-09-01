@@ -4,6 +4,7 @@ import com.project.Icare.CollectionDTO.CustomVisionDTO;
 import com.project.Icare.Exception.ImageException;
 import com.project.Icare.Service.CustomVisionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,8 +17,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 @Service
 public class CustomVisionImpl implements CustomVisionService {
-	private static final String URL = "YOUR-CUSTOM-VISION-PROJECT-URL";
-	private static final String PREDKEY = "YOUR-CUSTOM-VISION-PRED-KEY";
+	@Value("${customvision.url}")
+    private String url;
+
+    @Value("${customvision.prediction-key}")
+    private String predictionKey;
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -25,7 +29,7 @@ public class CustomVisionImpl implements CustomVisionService {
 	@Override
 	public CustomVisionDTO uploadImage(MultipartFile file) {
 		HttpHeaders headers = new HttpHeaders();
-		 headers.set("Prediction-Key", PREDKEY);
+		 headers.set("Prediction-Key", predictionKey);
 		 
 		 MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
 		 body.add("image", file.getResource());
